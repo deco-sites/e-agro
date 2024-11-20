@@ -5,6 +5,7 @@ import { useId } from "../../sdk/useId.ts";
 import { usePlatform } from "../../sdk/usePlatform.tsx";
 import QuantitySelector from "../ui/QuantitySelector.tsx";
 import { useScript } from "@deco/deco/hooks";
+import { formatPrice } from "../../sdk/format.ts";
 export interface Props extends JSX.HTMLAttributes<HTMLButtonElement> {
   product: Product;
   seller: string;
@@ -15,10 +16,11 @@ const onClick = () => {
   const button = event?.currentTarget as HTMLButtonElement | null;
   const container = button!.closest<HTMLDivElement>("div[data-cart-item]")!;
   const { item, platformProps } = JSON.parse(
-    decodeURIComponent(container.getAttribute("data-cart-item")!),
+    decodeURIComponent(container.getAttribute("data-cart-item")!)
   );
   window.STOREFRONT.CART.addToCart(item, platformProps);
 };
+
 const onChange = () => {
   const input = event!.currentTarget as HTMLInputElement;
   const productID = input!
@@ -35,10 +37,10 @@ const onLoad = (id: string) => {
   window.STOREFRONT.CART.subscribe((sdk) => {
     const container = document.getElementById(id);
     const checkbox = container?.querySelector<HTMLInputElement>(
-      'input[type="checkbox"]',
+      'input[type="checkbox"]'
     );
     const input = container?.querySelector<HTMLInputElement>(
-      'input[type="number"]',
+      'input[type="number"]'
     );
     const itemID = container?.getAttribute("data-item-id")!;
     const quantity = sdk.getQuantity(itemID) || 0;
@@ -48,12 +50,12 @@ const onLoad = (id: string) => {
     input.value = quantity.toString();
     checkbox.checked = quantity > 0;
     // enable interactivity
-    container?.querySelectorAll<HTMLButtonElement>("button").forEach((node) =>
-      node.disabled = false
-    );
-    container?.querySelectorAll<HTMLButtonElement>("input").forEach((node) =>
-      node.disabled = false
-    );
+    container
+      ?.querySelectorAll<HTMLButtonElement>("button")
+      .forEach((node) => (node.disabled = false));
+    container
+      ?.querySelectorAll<HTMLButtonElement>("input")
+      .forEach((node) => (node.disabled = false));
   });
 };
 const useAddToCart = ({ product, seller }: Props) => {
@@ -74,7 +76,7 @@ const useAddToCart = ({ product, seller }: Props) => {
       quantity: 1,
       itemId: productID,
       attributes: Object.fromEntries(
-        additionalProperty.map(({ name, value }) => [name, value]),
+        additionalProperty.map(({ name, value }) => [name, value])
       ),
     };
   }
@@ -90,7 +92,7 @@ const useAddToCart = ({ product, seller }: Props) => {
       itemId: Number(productGroupID),
       add_to_cart_enhanced: "1",
       attributes: Object.fromEntries(
-        additionalProperty.map(({ name, value }) => [name, value]),
+        additionalProperty.map(({ name, value }) => [name, value])
       ),
     };
   }
@@ -113,21 +115,13 @@ function AddToCartButton(props: Props) {
       class="flex"
       data-item-id={product.productID}
       data-cart-item={encodeURIComponent(
-        JSON.stringify({ item, platformProps }),
+        JSON.stringify({ item, platformProps })
       )}
     >
       <input type="checkbox" class="hidden peer" />
 
-      <button
-        disabled
-        class={clx("flex-grow peer-checked:hidden", _class?.toString())}
-        hx-on:click={useScript(onClick)}
-      >
-        Add to Cart
-      </button>
-
       {/* Quantity Input */}
-      <div class="flex-grow hidden peer-checked:flex">
+      <div class="flex-grow hidden peer-checked:flex mr-4">
         <QuantitySelector
           disabled
           min={0}
@@ -135,6 +129,22 @@ function AddToCartButton(props: Props) {
           hx-on:change={useScript(onChange)}
         />
       </div>
+
+      <button
+        disabled
+        class={clx("flex-grow peer-checked:flex mr-4", _class?.toString())}
+        hx-on:click={useScript(onClick)}
+      >
+        Adicionar ao Carrinho
+      </button>
+
+      <button
+        disabled
+        class={clx("flex-grow peer-checked:flex", "btn btn-primary")}
+        hx-on:click={useScript(onClick)}
+      >
+        Comprar - {formatPrice(product.offers?.highPrice, "BRL")}
+      </button>
 
       <script
         type="module"

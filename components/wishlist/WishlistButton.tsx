@@ -14,10 +14,9 @@ const onLoad = (id: string, productID: string) =>
     const inWishlist = sdk.inWishlist(productID);
     button.disabled = false;
     button.classList.remove("htmx-request");
-    button.querySelector("svg")?.setAttribute(
-      "fill",
-      inWishlist ? "black" : "none",
-    );
+    button
+      .querySelector("svg")
+      ?.setAttribute("fill", inWishlist ? "black" : "none");
     const span = button.querySelector("span");
     if (span) {
       span.innerHTML = inWishlist ? "Remove from wishlist" : "Add to wishlist";
@@ -58,7 +57,7 @@ function WishlistButton({ item, variant = "full" }: Props) {
           "btn no-animation",
           variant === "icon"
             ? "btn-circle btn-ghost btn-sm"
-            : "btn-primary btn-outline gap-2 w-full",
+            : "btn-primary btn-outline gap-2 w-full"
         )}
       >
         <Icon id="favorite" class="[.htmx-request_&]:hidden" fill="none" />
