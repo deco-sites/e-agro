@@ -66,10 +66,12 @@ export default function Site({
   if (firstRun) {
     firstRun = false;
     console.info(
-      ` ${rgb24("Storefront", color("deco"))} | ${rgb24(
-        _platform,
-        color(_platform)
-      )} \n`
+      ` ${rgb24("Storefront", color("deco"))} | ${
+        rgb24(
+          _platform,
+          color(_platform),
+        )
+      } \n`,
     );
   }
   return {

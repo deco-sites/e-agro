@@ -4,6 +4,7 @@ import ProductInfo from "../../components/product/ProductInfo.tsx";
 import Breadcrumb from "../../components/ui/Breadcrumb.tsx";
 import Section from "../../components/ui/Section.tsx";
 import { clx } from "../../sdk/clx.ts";
+import { useDevice } from "@deco/deco/hooks";
 
 export interface Props {
   /** @title Integration */
@@ -11,6 +12,7 @@ export interface Props {
 }
 
 export default function ProductDetails({ page }: Props) {
+  const device = useDevice();
   /**
    * Rendered when a not found is returned by any of the loaders run on this page
    */
@@ -27,6 +29,21 @@ export default function ProductDetails({ page }: Props) {
     );
   }
 
+  const desctiption = (
+    <div>
+      <h2 class="text-2xl font-semibold text-black">
+        Descrição do produto
+        <span class="bg-[#35c537] w-[18px] h-[18px] inline-block ml-1 rounded-[18px_0]"></span>
+      </h2>
+      <div
+        class="mt-2 text-sm leading-6"
+        dangerouslySetInnerHTML={{
+          __html: page.product.description ?? "",
+        }}
+      />
+    </div>
+  );
+
   return (
     <div class="container flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-5 px-5 sm:px-0">
       <Breadcrumb itemListElement={page.breadcrumbList.itemListElement} />
@@ -38,24 +55,14 @@ export default function ProductDetails({ page }: Props) {
           "sm:grid-cols-2 sm:gap-24"
         )}
       >
-        <div class="">
+        <div class="flex flex-col sm:gap-12">
           <ImageGallerySlider page={page} />
-          <div>
-            <h2 class="text-2xl font-semibold text-black">
-              Descrição do produto
-              <span class="bg-[#35c537] w-[18px] h-[18px] inline-block ml-1 rounded-[18px_0]"></span>
-            </h2>
-            <div
-              class="mt-2 text-sm leading-6"
-              dangerouslySetInnerHTML={{
-                __html: page.product.description ?? "",
-              }}
-            />
-          </div>
+          {device !== "mobile" ? desctiption : null}
         </div>
         <div class="">
           <ProductInfo page={page} />
         </div>
+        {device === "mobile" ? desctiption : null}
       </div>
     </div>
   );

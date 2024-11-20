@@ -11,7 +11,7 @@ const ProductInfosTable = ({ page }: Props) => {
   if (!page?.product) return null;
 
   return (
-    <div class="container">
+    <div class="container py-4 sm:py-5 px-5 sm:px-0">
       <div
         tabindex="0"
         class="collapse collapse-arrow border border-solid border-[#0c881e] rounded-lg"
@@ -21,13 +21,15 @@ const ProductInfosTable = ({ page }: Props) => {
           <h2 class="text-lg font-semibold ">Características técnicas</h2>
         </div>
         <div class="collapse-content">
-          <div class="pt-4 grid grid-cols-2">
+          <div class="pt-4 grid grid-cols-1 sm:grid-cols-2">
             {page.product.additionalProperty?.map((property, index) => (
               <div
                 class={clx(
                   "p-4 grid grid-cols-2 ",
-                  Math.floor(index / 2) % 2 === 0 ? "bg-[#f7f7f7]" : "",
-                  (index + 1) % 2 !== 0 ? "rounded-s-lg" : "rounded-e-lg"
+                  Math.floor(index / 2) % 2 === 0 ? "sm:!bg-[#f7f7f7]" : "",
+                  (index + 1) % 2 !== 0
+                    ? "rounded-s-lg bg-[#f7f7f7] sm:bg-white"
+                    : "rounded-e-lg"
                 )}
               >
                 <span>{property.name}</span>

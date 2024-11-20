@@ -8,7 +8,7 @@ const serviceWorkerScript = () =>
     () =>
       navigator &&
       navigator.serviceWorker &&
-      navigator.serviceWorker.register("/sw.js")
+      navigator.serviceWorker.register("/sw.js"),
   );
 export default defineApp(async (_req, ctx) => {
   const revision = await Context.active().release?.revision();
@@ -28,9 +28,11 @@ export default defineApp(async (_req, ctx) => {
             __html: `
                     @font-face {
             font-family: 'Bradesco Sans';
-            src: url(${asset(
-              "/fonts/BradescoSans-Thin.woff2"
-            )}) format('woff2'),
+            src: url(${
+              asset(
+                "/fonts/BradescoSans-Thin.woff2",
+              )
+            }) format('woff2'),
               url(${asset("/fonts/BradescoSans-Thin.woff")}) format('woff');
             font-weight: 200;
             font-style: normal;
@@ -39,9 +41,11 @@ export default defineApp(async (_req, ctx) => {
 
           @font-face {
             font-family: 'Bradesco Sans';
-            src: url(${asset(
-              "/fonts/BradescoSans-Light.woff2"
-            )}) format('woff2'),
+            src: url(${
+              asset(
+                "/fonts/BradescoSans-Light.woff2",
+              )
+            }) format('woff2'),
               url(${asset("/fonts/BradescoSans-Light.woff")}) format('woff');
             font-weight: 300;
             font-style: normal;
@@ -50,9 +54,11 @@ export default defineApp(async (_req, ctx) => {
 
           @font-face {
             font-family: 'Bradesco Sans';
-            src: url(${asset(
-              "/fonts/BradescoSans-Regular.woff2"
-            )}) format('woff2'),
+            src: url(${
+              asset(
+                "/fonts/BradescoSans-Regular.woff2",
+              )
+            }) format('woff2'),
               url(${asset("/fonts/BradescoSans-Regular.woff")}) format('woff');
             font-weight: 400;
             font-style: normal;
@@ -61,9 +67,11 @@ export default defineApp(async (_req, ctx) => {
 
           @font-face {
             font-family: 'Bradesco Sans';
-            src: url(${asset(
-              "/fonts/BradescoSans-Medium.woff2"
-            )}) format('woff2'),
+            src: url(${
+              asset(
+                "/fonts/BradescoSans-Medium.woff2",
+              )
+            }) format('woff2'),
               url(${asset("/fonts/BradescoSans-Medium.woff")}) format('woff');
             font-weight: 500;
             font-style: normal;
@@ -72,9 +80,11 @@ export default defineApp(async (_req, ctx) => {
 
           @font-face {
             font-family: 'Bradesco Sans';
-            src: url(${asset(
-              "/fonts/BradescoSans-SemiBold.woff2"
-            )}) format('woff2'),
+            src: url(${
+              asset(
+                "/fonts/BradescoSans-SemiBold.woff2",
+              )
+            }) format('woff2'),
               url(${asset("/fonts/BradescoSans-SemiBold.woff")}) format('woff');
             font-weight: 600;
             font-style: normal;
@@ -83,9 +93,11 @@ export default defineApp(async (_req, ctx) => {
 
           @font-face {
             font-family: 'Bradesco Sans';
-            src: url(${asset(
-              "/fonts/BradescoSans-Bold.woff2"
-            )}) format('woff2'),
+            src: url(${
+              asset(
+                "/fonts/BradescoSans-Bold.woff2",
+              )
+            }) format('woff2'),
               url(${asset("/fonts/BradescoSans-Bold.woff")}) format('woff');
             font-weight: 700;
             font-style: normal;
@@ -94,9 +106,11 @@ export default defineApp(async (_req, ctx) => {
 
           @font-face {
             font-family: 'Bradesco Sans';
-            src: url(${asset(
-              "/fonts/BradescoSans-Black.woff2"
-            )}) format('woff2'),
+            src: url(${
+              asset(
+                "/fonts/BradescoSans-Black.woff2",
+              )
+            }) format('woff2'),
               url(${asset("/fonts/BradescoSans-Black.woff")}) format('woff');
             font-weight: 800;
             font-style: normal;

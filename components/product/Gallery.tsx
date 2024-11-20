@@ -5,6 +5,7 @@ import Icon from "../ui/Icon.tsx";
 import Slider from "../ui/Slider.tsx";
 import { clx } from "../../sdk/clx.ts";
 import { useId } from "../../sdk/useId.ts";
+import { useDevice } from "@deco/deco/hooks";
 
 export interface Props {
   /** @title Integration */
@@ -24,6 +25,7 @@ const ASPECT_RATIO = `${WIDTH} / ${HEIGHT}`;
 export default function GallerySlider(props: Props) {
   const id = useId();
   const zoomId = `${id}-zoom`;
+  const device = useDevice();
 
   if (!props.page) {
     throw new Error("Missing Product Details Page Info");
@@ -75,14 +77,14 @@ export default function GallerySlider(props: Props) {
             </Slider>
 
             <Slider.PrevButton
-              class="no-animation absolute left-2 top-1/2 btn btn-circle btn-outline disabled:invisible"
+              class="no-animation absolute left-2 top-1/2 btn btn-circle btn-white disabled:invisible"
               disabled
             >
               <Icon id="chevron-right" class="rotate-180" />
             </Slider.PrevButton>
 
             <Slider.NextButton
-              class="no-animation absolute right-2 top-1/2 btn btn-circle btn-outline disabled:invisible"
+              class="no-animation absolute right-2 top-1/2 btn btn-circle btn-white disabled:invisible"
               disabled={images.length < 2}
             >
               <Icon id="chevron-right" />
@@ -97,7 +99,7 @@ export default function GallerySlider(props: Props) {
         </div>
 
         {/* Dots */}
-        <div class="col-start-1 col-span-1">
+        <div class="col-start-1 col-span-1 flex  justify-center sm:justify-start ">
           <ul
             class={clx(
               "carousel carousel-center",
@@ -110,16 +112,25 @@ export default function GallerySlider(props: Props) {
             style={{ maxHeight: "600px" }}
           >
             {images.map((img, index) => (
-              <li class="carousel-item w-16 h-16">
+              <li
+                class={clx(
+                  "carousel-item ",
+                  device !== "mobile" ? "w-16 h-16 " : "w-2 h-2 "
+                )}
+              >
                 <Slider.Dot index={index}>
-                  <Image
-                    style={{ aspectRatio: "1 / 1" }}
-                    class="group-disabled:border-base-400 border rounded object-cover w-full h-full"
-                    width={62}
-                    height={62}
-                    src={img.url!}
-                    alt={img.alternateName}
-                  />
+                  {device !== "mobile" ? (
+                    <Image
+                      style={{ aspectRatio: "1 / 1" }}
+                      class="group-disabled:border-base-400 border rounded object-cover w-full h-full"
+                      width={62}
+                      height={62}
+                      src={img.url!}
+                      alt={img.alternateName}
+                    />
+                  ) : (
+                    <div class="rounded-full group-disabled:bg-[#0c881e] bg-[#d8dcdd] w-2 h-2"></div>
+                  )}
                 </Slider.Dot>
               </li>
             ))}
