@@ -11,8 +11,10 @@ import * as $$$$$$$$$$$3 from "./apps/site.ts";
 import * as $$$0 from "./loaders/availableIcons.ts";
 import * as $$$1 from "./loaders/icons.ts";
 import * as $$$2 from "./loaders/minicart.ts";
-import * as $$$3 from "./loaders/user.ts";
-import * as $$$4 from "./loaders/wishlist.ts";
+import * as $$$3 from "./loaders/productListingPage.ts";
+import * as $$$4 from "./loaders/productsFromJson.ts";
+import * as $$$5 from "./loaders/user.ts";
+import * as $$$6 from "./loaders/wishlist.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$2 from "./sections/Category/CategoryGrid.tsx";
@@ -47,8 +49,10 @@ const manifest = {
     "site/loaders/availableIcons.ts": $$$0,
     "site/loaders/icons.ts": $$$1,
     "site/loaders/minicart.ts": $$$2,
-    "site/loaders/user.ts": $$$3,
-    "site/loaders/wishlist.ts": $$$4,
+    "site/loaders/productListingPage.ts": $$$3,
+    "site/loaders/productsFromJson.ts": $$$4,
+    "site/loaders/user.ts": $$$5,
+    "site/loaders/wishlist.ts": $$$6,
   },
   "sections": {
     "site/sections/Animation/Animation.tsx": $$$$$$0,
