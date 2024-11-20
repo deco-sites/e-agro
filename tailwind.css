@@ -58,4 +58,13 @@
     border-radius: 4px;
     background-color: #a1a1a1;
   }
+
+  .breadcrumbs > ul > li + *:before,
+  .breadcrumbs > ol > li + *:before {
+    content: "/";
+    transform: none;
+    color: #161616;
+    border: none;
+    height: auto;
+  }
 }
