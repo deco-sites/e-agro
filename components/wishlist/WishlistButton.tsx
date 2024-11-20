@@ -14,10 +14,9 @@ const onLoad = (id: string, productID: string) =>
     const inWishlist = sdk.inWishlist(productID);
     button.disabled = false;
     button.classList.remove("htmx-request");
-    button.querySelector("svg")?.setAttribute(
-      "fill",
-      inWishlist ? "black" : "none",
-    );
+    button
+      .querySelector("svg")
+      ?.setAttribute("fill", inWishlist ? "black" : "none");
     const span = button.querySelector("span");
     if (span) {
       span.innerHTML = inWishlist ? "Remove from wishlist" : "Add to wishlist";

@@ -5,6 +5,7 @@ import { useId } from "../../sdk/useId.ts";
 import { usePlatform } from "../../sdk/usePlatform.tsx";
 import QuantitySelector from "../ui/QuantitySelector.tsx";
 import { useScript } from "@deco/deco/hooks";
+import { formatPrice } from "../../sdk/format.ts";
 export interface Props extends JSX.HTMLAttributes<HTMLButtonElement> {
   product: Product;
   seller: string;
@@ -19,6 +20,7 @@ const onClick = () => {
   );
   window.STOREFRONT.CART.addToCart(item, platformProps);
 };
+
 const onChange = () => {
   const input = event!.currentTarget as HTMLInputElement;
   const productID = input!
@@ -48,12 +50,12 @@ const onLoad = (id: string) => {
     input.value = quantity.toString();
     checkbox.checked = quantity > 0;
     // enable interactivity
-    container?.querySelectorAll<HTMLButtonElement>("button").forEach((node) =>
-      node.disabled = false
-    );
-    container?.querySelectorAll<HTMLButtonElement>("input").forEach((node) =>
-      node.disabled = false
-    );
+    container
+      ?.querySelectorAll<HTMLButtonElement>("button")
+      .forEach((node) => (node.disabled = false));
+    container
+      ?.querySelectorAll<HTMLButtonElement>("input")
+      .forEach((node) => (node.disabled = false));
   });
 };
 const useAddToCart = ({ product, seller }: Props) => {
@@ -118,16 +120,8 @@ function AddToCartButton(props: Props) {
     >
       <input type="checkbox" class="hidden peer" />
 
-      <button
-        disabled
-        class={clx("flex-grow peer-checked:hidden", _class?.toString())}
-        hx-on:click={useScript(onClick)}
-      >
-        Add to Cart
-      </button>
-
       {/* Quantity Input */}
-      <div class="flex-grow hidden peer-checked:flex">
+      <div class="flex-grow hidden peer-checked:flex mr-4">
         <QuantitySelector
           disabled
           min={0}
@@ -135,6 +129,22 @@ function AddToCartButton(props: Props) {
           hx-on:change={useScript(onChange)}
         />
       </div>
+
+      <button
+        disabled
+        class={clx("flex-grow peer-checked:flex mr-4", _class?.toString())}
+        hx-on:click={useScript(onClick)}
+      >
+        Adicionar ao Carrinho
+      </button>
+
+      <button
+        disabled
+        class={clx("flex-grow peer-checked:flex", "btn btn-primary")}
+        hx-on:click={useScript(onClick)}
+      >
+        Comprar - {formatPrice(product.offers?.highPrice, "BRL")}
+      </button>
 
       <script
         type="module"

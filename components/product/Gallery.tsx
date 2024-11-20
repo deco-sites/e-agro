@@ -11,8 +11,8 @@ export interface Props {
   page: ProductDetailsPage | null;
 }
 
-const WIDTH = 820;
-const HEIGHT = 615;
+const WIDTH = 535;
+const HEIGHT = 535;
 const ASPECT_RATIO = `${WIDTH} / ${HEIGHT}`;
 
 /**
@@ -29,7 +29,11 @@ export default function GallerySlider(props: Props) {
     throw new Error("Missing Product Details Page Info");
   }
 
-  const { page: { product: { name, isVariantOf, image: pImages } } } = props;
+  const {
+    page: {
+      product: { name, isVariantOf, image: pImages },
+    },
+  } = props;
 
   // Filter images when image's alt text matches product name
   // More info at: https://community.shopify.com/c/shopify-discussions/i-can-not-add-multiple-pictures-for-my-variants/m-p/2416533
@@ -52,10 +56,10 @@ export default function GallerySlider(props: Props) {
               {images.map((img, index) => (
                 <Slider.Item
                   index={index}
-                  class="carousel-item w-full"
+                  class="carousel-item w-full rounded-md overflow-hidden"
                 >
                   <Image
-                    class="w-full"
+                    class="w-full object-cover"
                     sizes="(max-width: 640px) 100vw, 40vw"
                     style={{ aspectRatio: ASPECT_RATIO }}
                     src={img.url!}
@@ -111,8 +115,8 @@ export default function GallerySlider(props: Props) {
                   <Image
                     style={{ aspectRatio: "1 / 1" }}
                     class="group-disabled:border-base-400 border rounded object-cover w-full h-full"
-                    width={64}
-                    height={64}
+                    width={62}
+                    height={62}
                     src={img.url!}
                     alt={img.alternateName}
                   />
@@ -128,7 +132,7 @@ export default function GallerySlider(props: Props) {
         id={zoomId}
         images={images}
         width={700}
-        height={Math.trunc(700 * HEIGHT / WIDTH)}
+        height={Math.trunc((700 * HEIGHT) / WIDTH)}
       />
     </>
   );

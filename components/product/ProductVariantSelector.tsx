@@ -8,18 +8,18 @@ interface Props {
   product: Product;
 }
 const colors: Record<string, string | undefined> = {
-  "White": "white",
-  "Black": "black",
-  "Gray": "gray",
-  "Blue": "#99CCFF",
-  "Green": "#aad1b5",
-  "Yellow": "#F1E8B0",
-  "DarkBlue": "#4E6E95",
-  "LightBlue": "#bedae4",
-  "DarkGreen": "#446746",
-  "LightGreen": "#aad1b5",
-  "DarkYellow": "#c6b343",
-  "LightYellow": "#F1E8B0",
+  White: "white",
+  Black: "black",
+  Gray: "gray",
+  Blue: "#99CCFF",
+  Green: "#aad1b5",
+  Yellow: "#F1E8B0",
+  DarkBlue: "#4E6E95",
+  LightBlue: "#bedae4",
+  DarkGreen: "#446746",
+  LightGreen: "#aad1b5",
+  DarkYellow: "#c6b343",
+  LightYellow: "#F1E8B0",
 };
 const useStyles = (value: string, checked: boolean) => {
   if (colors[value]) {
@@ -37,7 +37,11 @@ const useStyles = (value: string, checked: boolean) => {
     checked ? "ring-primary" : "ring-transparent border-[#C9CFCF]",
   );
 };
-export const Ring = ({ value, checked = false, class: _class }: {
+export const Ring = ({
+  value,
+  checked = false,
+  class: _class,
+}: {
   value: string;
   checked?: boolean;
   class?: string;
@@ -56,8 +60,9 @@ function VariantSelector({ product }: Props) {
   const possibilities = useVariantPossibilities(hasVariant, product);
   const relativeUrl = relative(url);
   const id = useId();
-  const filteredNames = Object.keys(possibilities).filter((name) =>
-    name.toLowerCase() !== "title" && name.toLowerCase() !== "default title"
+  const filteredNames = Object.keys(possibilities).filter(
+    (name) =>
+      name.toLowerCase() !== "title" && name.toLowerCase() !== "default title",
   );
   if (filteredNames.length === 0) {
     return null;
