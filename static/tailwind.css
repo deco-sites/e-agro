@@ -462,8 +462,8 @@ html {
   }
 
   /** Remove default styles from input[type=number] */
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
@@ -477,11 +477,11 @@ html {
 
   @keyframes progress-frame {
     0% {
-      --dot-progress: 0%
+      --dot-progress: 0%;
     }
-  
+
     to {
-      --dot-progress: 100%
+      --dot-progress: 100%;
     }
   }
 
@@ -3626,7 +3626,7 @@ details.collapse summary::-webkit-details-marker {
   border-bottom-left-radius: 0px;
 }
 .group:disabled .group-disabled\:animate-progress {
-    animation: progress-frame ease normal
+    animation: progress-frame ease normal;
   }
 .scrollbar::-webkit-scrollbar {
     width: 4px;
@@ -6016,4 +6016,3 @@ details.collapse summary::-webkit-details-marker {
 [data-aside].\[\[data-aside\]\&_section\]\:contents section {
   display: contents;
 }
-
