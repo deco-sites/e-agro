@@ -1,6 +1,6 @@
 {
   "name": "Product Page",
-  "path": "/products/:slug",
+  "path": "/:slug/p",
   "default": {
     "possiblePaths": []
   },
@@ -10,7 +10,7 @@
       "section": {
         "__resolveType": "commerce/sections/Seo/SeoPDPV2.tsx",
         "jsonLD": {
-          "__resolveType": "PDP Loader"
+          "__resolveType": "site/loaders/productDetailsPage.ts"
         },
         "jsonLDs": [
           {}
@@ -28,7 +28,7 @@
       "section": {
         "__resolveType": "site/sections/Product/ProductDetails.tsx",
         "page": {
-          "__resolveType": "PDP Loader"
+          "__resolveType": "site/loaders/productDetailsPage.ts"
         }
       }
     },
@@ -37,7 +37,7 @@
       "section": {
         "__resolveType": "site/sections/Product/ProductInfosTable.tsx",
         "page": {
-          "__resolveType": "PDP Loader"
+          "__resolveType": "site/loaders/productDetailsPage.ts"
         }
       }
     },

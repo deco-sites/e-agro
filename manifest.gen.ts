@@ -46,7 +46,7 @@ import * as $$$$$$27 from "./sections/Social/WhatsApp.tsx";
 import * as $$$$$$28 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
-  "loaders": {
+  loaders: {
     "site/loaders/availableIcons.ts": $$$0,
     "site/loaders/icons.ts": $$$1,
     "site/loaders/minicart.ts": $$$2,
@@ -55,7 +55,7 @@ const manifest = {
     "site/loaders/user.ts": $$$5,
     "site/loaders/wishlist.ts": $$$6,
   },
-  "sections": {
+  sections: {
     "site/sections/Animation/Animation.tsx": $$$$$$0,
     "site/sections/Category/CategoryBanner.tsx": $$$$$$1,
     "site/sections/Category/CategoryGrid.tsx": $$$$$$2,
@@ -86,18 +86,18 @@ const manifest = {
     "site/sections/Social/WhatsApp.tsx": $$$$$$27,
     "site/sections/Theme/Theme.tsx": $$$$$$28,
   },
-  "actions": {
+  actions: {
     "site/actions/minicart/submit.ts": $$$$$$$$$0,
     "site/actions/wishlist/submit.ts": $$$$$$$$$1,
   },
-  "apps": {
+  apps: {
     "site/apps/deco/analytics.ts": $$$$$$$$$$$0,
     "site/apps/deco/htmx.ts": $$$$$$$$$$$1,
     "site/apps/deco/shopify.ts": $$$$$$$$$$$2,
     "site/apps/site.ts": $$$$$$$$$$$3,
   },
-  "name": "site",
-  "baseUrl": import.meta.url,
+  name: "site",
+  baseUrl: import.meta.url,
 };
 
 export type Manifest = typeof manifest;

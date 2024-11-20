@@ -6,7 +6,6 @@ import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
 import ShippingSimulationForm from "../shipping/Form.tsx";
-// import WishlistButton from "../wishlist/WishlistButton.tsx";
 import AddToCartButton from "./AddToCartButton.tsx";
 import OutOfStock from "./OutOfStock.tsx";
 import ProductSelector from "./ProductVariantSelector.tsx";
@@ -31,9 +30,9 @@ function ProductInfo({ page }: Props) {
 
   const { price = 0, listPrice, seller = "1", availability } = useOffer(offers);
 
-  const _percent = listPrice && price
-    ? Math.round(((listPrice - price) / listPrice) * 100)
-    : 0;
+  // const percent = listPrice && price
+  //   ? Math.round(((listPrice - price) / listPrice) * 100)
+  //   : 0;
 
   const breadcrumb = {
     ...breadcrumbList,
@@ -59,6 +58,9 @@ function ProductInfo({ page }: Props) {
       },
     },
   });
+
+  const installmentQuantity = Math.min(12, Math.floor(price / 10));
+  const installmentValue = Math.ceil(price / installmentQuantity);
 
   //Checks if the variant name is "title"/"default title" and if so, the SKU Selector div doesn't render
   const hasValidVariants = isVariantOf?.hasVariant?.some(
@@ -94,7 +96,7 @@ function ProductInfo({ page }: Props) {
 
       {/* Sku Selector */}
       {hasValidVariants && (
-        <div className="mt-4 sm:mt-8">
+        <div class="mt-4 sm:mt-8">
           <ProductSelector product={product} />
         </div>
       )}
@@ -121,29 +123,32 @@ function ProductInfo({ page }: Props) {
         />
       </div>
 
-      <div class="mt-4 border border-solid border-[#d9dcdd] p-4 gap-4">
-        <h2 class="text-sm font-semibold text-center text-[#008aeb] leading-6">
+      <div class="mt-4 border border-solid border-[#d9dcdd] p-4 gap-4 flex flex-col">
+        <h2 class="text-sm font-semibold sm:text-center text-[#008aeb] leading-6">
           Meios de pagamento
         </h2>
-        <ul class="flex gap-7 justify-center">
+        <ul class="flex flex-col sm:flex-row gap-4 sm:gap-7 justify-center">
           <li>
             <span>
-              <Icon id="card" />
-              <span className="text-black text-sm font-semibold">
+              <Icon id="card" size={16} class="inline-block mr-2" />
+              <span class="text-black text-sm font-semibold">
                 Cartão de crédito
+              </span>{" "}
+              <span class="text-xs text-[#6d6e71]">
+                até {installmentQuantity}x de {formatPrice(installmentValue)}
               </span>
             </span>
           </li>
           <li>
             <span>
-              <Icon id="pix" />
-              <span className="text-black text-sm font-semibold">Pix</span>
+              <Icon id="pix" size={16} class="inline-block mr-2" />
+              <span class="text-black text-sm font-semibold">Pix</span>
             </span>
           </li>
           <li>
             <span>
-              <Icon id="bars" />
-              <span className="text-black text-sm font-semibold">Boleto</span>
+              <Icon id="bars" size={16} class="inline-block mr-2" />
+              <span class="text-black text-sm font-semibold">Boleto</span>
             </span>
           </li>
         </ul>
@@ -172,7 +177,7 @@ function ProductInfo({ page }: Props) {
             target="_blank"
           >
             <img
-              src="data:image/png;base64,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"
+              src="data:image/png;base64,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"
               alt="Facebook"
               title="Facebook"
               class="w-4"
@@ -204,7 +209,7 @@ function ProductInfo({ page }: Props) {
           <Icon id="verified-seal" size={20} class="inline mr-2" />
           Vendido por{" "}
           <a href="" class="text-[#0c881e] font-semibold">
-            {product.offers?.offers[0].seller ?? "Latina Seeds"} →
+            {product.offers?.offers[0].sellerName} →
           </a>
         </span>
       </div>

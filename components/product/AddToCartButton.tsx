@@ -112,7 +112,7 @@ function AddToCartButton(props: Props) {
   return (
     <div
       id={id}
-      class="flex"
+      class="flex flex-col gap-2 sm:flex-row"
       data-item-id={product.productID}
       data-cart-item={encodeURIComponent(
         JSON.stringify({ item, platformProps }),
