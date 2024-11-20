@@ -8,18 +8,18 @@ interface Props {
   product: Product;
 }
 const colors: Record<string, string | undefined> = {
-  "White": "white",
-  "Black": "black",
-  "Gray": "gray",
-  "Blue": "#99CCFF",
-  "Green": "#aad1b5",
-  "Yellow": "#F1E8B0",
-  "DarkBlue": "#4E6E95",
-  "LightBlue": "#bedae4",
-  "DarkGreen": "#446746",
-  "LightGreen": "#aad1b5",
-  "DarkYellow": "#c6b343",
-  "LightYellow": "#F1E8B0",
+  White: "white",
+  Black: "black",
+  Gray: "gray",
+  Blue: "#99CCFF",
+  Green: "#aad1b5",
+  Yellow: "#F1E8B0",
+  DarkBlue: "#4E6E95",
+  LightBlue: "#bedae4",
+  DarkGreen: "#446746",
+  LightGreen: "#aad1b5",
+  DarkYellow: "#c6b343",
+  LightYellow: "#F1E8B0",
 };
 const useStyles = (value: string, checked: boolean) => {
   if (colors[value]) {
@@ -28,16 +28,20 @@ const useStyles = (value: string, checked: boolean) => {
       "w-12 h-12 block",
       "border border-[#C9CFCF] rounded-full",
       "ring-2 ring-offset-2",
-      checked ? "ring-primary" : "ring-transparent",
+      checked ? "ring-primary" : "ring-transparent"
     );
   }
   return clx(
     "btn btn-ghost border-[#C9CFCF] hover:bg-base-200 hover:border-[#C9CFCF] w-12 h-12",
     "ring-2 ring-offset-2",
-    checked ? "ring-primary" : "ring-transparent border-[#C9CFCF]",
+    checked ? "ring-primary" : "ring-transparent border-[#C9CFCF]"
   );
 };
-export const Ring = ({ value, checked = false, class: _class }: {
+export const Ring = ({
+  value,
+  checked = false,
+  class: _class,
+}: {
   value: string;
   checked?: boolean;
   class?: string;
@@ -56,8 +60,9 @@ function VariantSelector({ product }: Props) {
   const possibilities = useVariantPossibilities(hasVariant, product);
   const relativeUrl = relative(url);
   const id = useId();
-  const filteredNames = Object.keys(possibilities).filter((name) =>
-    name.toLowerCase() !== "title" && name.toLowerCase() !== "default title"
+  const filteredNames = Object.keys(possibilities).filter(
+    (name) =>
+      name.toLowerCase() !== "title" && name.toLowerCase() !== "default title"
   );
   if (filteredNames.length === 0) {
     return null;
@@ -94,7 +99,7 @@ function VariantSelector({ product }: Props) {
                       <div
                         class={clx(
                           "col-start-1 row-start-1 col-span-1 row-span-1",
-                          "[.htmx-request_&]:opacity-0 transition-opacity",
+                          "[.htmx-request_&]:opacity-0 transition-opacity"
                         )}
                       >
                         <Ring value={value} checked={checked} />
@@ -104,7 +109,7 @@ function VariantSelector({ product }: Props) {
                         class={clx(
                           "col-start-1 row-start-1 col-span-1 row-span-1",
                           "opacity-0 [.htmx-request_&]:opacity-100 transition-opacity",
-                          "flex justify-center items-center",
+                          "flex justify-center items-center"
                         )}
                       >
                         <span class="loading loading-sm loading-spinner" />
