@@ -1,5 +1,5 @@
 import { ComponentChildren } from "preact";
-import Icon from "./Icon.tsx";
+// import Icon from "./Icon.tsx";
 
 interface Props {
   children: ComponentChildren;

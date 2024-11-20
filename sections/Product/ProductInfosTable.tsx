@@ -27,7 +27,7 @@ const ProductInfosTable = ({ page }: Props) => {
                 class={clx(
                   "p-4 grid grid-cols-2 ",
                   Math.floor(index / 2) % 2 === 0 ? "bg-[#f7f7f7]" : "",
-                  (index + 1) % 2 !== 0 ? "rounded-s-lg" : "rounded-e-lg"
+                  (index + 1) % 2 !== 0 ? "rounded-s-lg" : "rounded-e-lg",
                 )}
               >
                 <span>{property.name}</span>

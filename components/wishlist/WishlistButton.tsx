@@ -57,7 +57,7 @@ function WishlistButton({ item, variant = "full" }: Props) {
           "btn no-animation",
           variant === "icon"
             ? "btn-circle btn-ghost btn-sm"
-            : "btn-primary btn-outline gap-2 w-full"
+            : "btn-primary btn-outline gap-2 w-full",
         )}
       >
         <Icon id="favorite" class="[.htmx-request_&]:hidden" fill="none" />

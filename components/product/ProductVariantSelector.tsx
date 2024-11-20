@@ -28,13 +28,13 @@ const useStyles = (value: string, checked: boolean) => {
       "w-12 h-12 block",
       "border border-[#C9CFCF] rounded-full",
       "ring-2 ring-offset-2",
-      checked ? "ring-primary" : "ring-transparent"
+      checked ? "ring-primary" : "ring-transparent",
     );
   }
   return clx(
     "btn btn-ghost border-[#C9CFCF] hover:bg-base-200 hover:border-[#C9CFCF] w-12 h-12",
     "ring-2 ring-offset-2",
-    checked ? "ring-primary" : "ring-transparent border-[#C9CFCF]"
+    checked ? "ring-primary" : "ring-transparent border-[#C9CFCF]",
   );
 };
 export const Ring = ({
@@ -62,7 +62,7 @@ function VariantSelector({ product }: Props) {
   const id = useId();
   const filteredNames = Object.keys(possibilities).filter(
     (name) =>
-      name.toLowerCase() !== "title" && name.toLowerCase() !== "default title"
+      name.toLowerCase() !== "title" && name.toLowerCase() !== "default title",
   );
   if (filteredNames.length === 0) {
     return null;
@@ -99,7 +99,7 @@ function VariantSelector({ product }: Props) {
                       <div
                         class={clx(
                           "col-start-1 row-start-1 col-span-1 row-span-1",
-                          "[.htmx-request_&]:opacity-0 transition-opacity"
+                          "[.htmx-request_&]:opacity-0 transition-opacity",
                         )}
                       >
                         <Ring value={value} checked={checked} />
@@ -109,7 +109,7 @@ function VariantSelector({ product }: Props) {
                         class={clx(
                           "col-start-1 row-start-1 col-span-1 row-span-1",
                           "opacity-0 [.htmx-request_&]:opacity-100 transition-opacity",
-                          "flex justify-center items-center"
+                          "flex justify-center items-center",
                         )}
                       >
                         <span class="loading loading-sm loading-spinner" />
