@@ -4,7 +4,7 @@ export type Possibilities = Record<string, Record<string, string | undefined>>;
 
 const hash = ({ name, value }: PropertyValue) => `${name}::${value}`;
 
-const omit = new Set(["category", "cluster", "RefId", "descriptionHtml"]);
+// const omit = new Set(["category", "cluster", "RefId", "descriptionHtml"]);
 const show = new Set(["color", "size"]);
 
 export const useVariantPossibilities = (

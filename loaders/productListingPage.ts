@@ -8,6 +8,8 @@ import {
   ProductListingPage,
   PropertyValue,
 } from "apps/commerce/types.ts";
+import { pageTypesToSeo } from "apps/vtex/utils/legacy.ts";
+import { PageType } from "apps/vtex/utils/types.ts";
 
 /**
  * @title {{key}} - {{value}}
@@ -59,6 +61,8 @@ export default async function loader(
   url.searchParams.delete("page");
 
   const offset = (page - 1) * count;
+  const hasPreviousPage = page > 0;
+  const currentPage = page + offset;
 
   const filtersParamsRecord = filtersParams?.reduce((acc, { key, value }) => {
     acc[key] = value;
@@ -79,6 +83,18 @@ export default async function loader(
   const previousPage = new URL(req.url);
   previousPage.searchParams.set("page", String(page - 1));
 
+  const pageTypes: PageType[] = [
+    {
+      id: null,
+      name: "Insumos agrícolas",
+      url: "/insumos-agricolas",
+      title: "Insumos agrícolas | As melhores marcas estão no E-agro",
+      metaTagDescription:
+        "Encontre as melhores marcas de Insumos agrícolas no E-agro e aproveite nossas condições especiais! Tudo que o agro precisa tem aqui. Confira!",
+      pageType: "FullText",
+    },
+  ];
+
   return {
     "@type": "ProductListingPage",
     filters,
@@ -87,7 +103,8 @@ export default async function loader(
       itemListElement: [
         {
           "@type": "ListItem",
-          item: "Produtos",
+          item: "/insumos-agricolas",
+          name: "Insumos agrícolas",
           position: 0,
         },
       ],
@@ -127,6 +144,11 @@ export default async function loader(
       records: total,
       recordPerPage: count,
     },
+    seo: pageTypesToSeo(
+      pageTypes,
+      url.toString(),
+      hasPreviousPage ? currentPage : undefined,
+    ),
   };
 }
 

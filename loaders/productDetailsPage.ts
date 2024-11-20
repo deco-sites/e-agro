@@ -4,7 +4,7 @@ import { AppContext } from "site/apps/site.ts";
 const loader = async (
   _props: unknown,
   req: Request,
-  ctx: AppContext
+  ctx: AppContext,
 ): Promise<ProductDetailsPage | null> => {
   const productsData = (await ctx.invoke.site.loaders.productsFromJson()) ?? [];
   const url = new URL(req.url);

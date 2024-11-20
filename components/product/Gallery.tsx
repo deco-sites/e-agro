@@ -107,7 +107,7 @@ export default function GallerySlider(props: Props) {
               "gap-2",
               "max-w-full",
               "overflow-x-auto",
-              "sm:overflow-y-auto"
+              "sm:overflow-y-auto",
             )}
             style={{ maxHeight: "600px" }}
           >
@@ -115,22 +115,25 @@ export default function GallerySlider(props: Props) {
               <li
                 class={clx(
                   "carousel-item ",
-                  device !== "mobile" ? "w-16 h-16 " : "w-2 h-2 "
+                  device !== "mobile" ? "w-16 h-16 " : "w-2 h-2 ",
                 )}
               >
                 <Slider.Dot index={index}>
-                  {device !== "mobile" ? (
-                    <Image
-                      style={{ aspectRatio: "1 / 1" }}
-                      class="group-disabled:border-base-400 border rounded object-cover w-full h-full"
-                      width={62}
-                      height={62}
-                      src={img.url!}
-                      alt={img.alternateName}
-                    />
-                  ) : (
-                    <div class="rounded-full group-disabled:bg-[#0c881e] bg-[#d8dcdd] w-2 h-2"></div>
-                  )}
+                  {device !== "mobile"
+                    ? (
+                      <Image
+                        style={{ aspectRatio: "1 / 1" }}
+                        class="group-disabled:border-base-400 border rounded object-cover w-full h-full"
+                        width={62}
+                        height={62}
+                        src={img.url!}
+                        alt={img.alternateName}
+                      />
+                    )
+                    : (
+                      <div class="rounded-full group-disabled:bg-[#0c881e] bg-[#d8dcdd] w-2 h-2">
+                      </div>
+                    )}
                 </Slider.Dot>
               </li>
             ))}

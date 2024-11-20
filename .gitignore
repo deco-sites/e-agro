@@ -84,3 +84,6 @@ _docker_deps.ts
 
 # Deno files
 deno.*.tmp
+
+# TAilwind file
+static/tailwind.css

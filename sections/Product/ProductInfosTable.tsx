@@ -29,7 +29,7 @@ const ProductInfosTable = ({ page }: Props) => {
                   Math.floor(index / 2) % 2 === 0 ? "sm:!bg-[#f7f7f7]" : "",
                   (index + 1) % 2 !== 0
                     ? "rounded-s-lg bg-[#f7f7f7] sm:bg-white"
-                    : "rounded-e-lg"
+                    : "rounded-e-lg",
                 )}
               >
                 <span>{property.name}</span>

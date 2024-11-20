@@ -71,7 +71,7 @@ function Placeholder(
       }}
       class={clx("flex justify-center items-center", _class)}
     >
-      <span class="loading loading-spinner" />
+      <span class="loading loading-spinner text-[#0c881e] size-24" />
     </div>
   );
 }
