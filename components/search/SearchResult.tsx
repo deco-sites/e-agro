@@ -80,9 +80,7 @@ function PageResult(props: SectionProps<typeof loader>) {
           hx-swap="outerHTML show:parent:top"
           hx-get={partialPrev}
         >
-          <span class="inline [.htmx-request_&]:hidden">
-            Show Less
-          </span>
+          <span class="inline [.htmx-request_&]:hidden">Show Less</span>
           <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
         </a>
       </div>
@@ -120,9 +118,7 @@ function PageResult(props: SectionProps<typeof loader>) {
                 hx-swap="outerHTML show:parent:top"
                 hx-get={partialNext}
               >
-                <span class="inline [.htmx-request_&]:hidden">
-                  Show More
-                </span>
+                <span class="inline [.htmx-request_&]:hidden">Show More</span>
                 <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
               </a>
             </div>
@@ -157,9 +153,9 @@ function PageResult(props: SectionProps<typeof loader>) {
   );
 }
 const setPageQuerystring = (page: string, id: string) => {
-  const element = document.getElementById(id)?.querySelector(
-    "[data-product-list]",
-  );
+  const element = document
+    .getElementById(id)
+    ?.querySelector("[data-product-list]");
   if (!element) {
     return;
   }
@@ -199,7 +195,7 @@ function Result(props: SectionProps<typeof loader>) {
         item_list_id: breadcrumb.itemListElement?.at(-1)?.item,
         items: page.products?.map((product, index) =>
           mapProductToAnalyticsItem({
-            ...(useOffer(product.offers)),
+            ...useOffer(product.offers),
             index: offset + index,
             product,
             breadcrumbList: page.breadcrumb,
@@ -216,14 +212,41 @@ function Result(props: SectionProps<typeof loader>) {
   const sortBy = sortOptions.length > 0 && (
     <Sort sortOptions={sortOptions} url={url} />
   );
+
+  const FiltersSuggestions = () => (
+    <div class="flex gap-4">
+      {["A-Z", "Menor Preço"].map((filter) => (
+        <div
+          class={clx(
+            "flex items-center h-8 rounded-2xl px-[14px] py-[6px]",
+            " bg-[#f7f7f7] cursor-pointer hover:bg-[#e5e6e7] transition-colors duration-300",
+          )}
+        >
+          <p class="text-base font-semibold text-black">{filter}</p>
+        </div>
+      ))}
+    </div>
+  );
+
   return (
     <>
       <div id={container} {...viewItemListEvent} class="w-full">
         {partial
           ? <PageResult {...props} />
           : (
-            <div class="container flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-5 px-5 sm:px-0">
-              <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+            <div class="container lg:max-w-[1248px] flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-6 px-5 sm:px-0">
+              <div class="w-full flex flex-col pb-7 border-b border-[#f7f7f7]">
+                <Breadcrumb
+                  itemListElement={breadcrumb?.itemListElement}
+                  isProductListingPage={!!page}
+                />
+                <div class="w-full mt-4 flex gap-6 items-center">
+                  <p class="text-sm font-normal text-[#6d6e71]">
+                    Sugestões de filtros
+                  </p>
+                  <FiltersSuggestions />
+                </div>
+              </div>
 
               {device === "mobile" && (
                 <Drawer
@@ -257,7 +280,7 @@ function Result(props: SectionProps<typeof loader>) {
                 </Drawer>
               )}
 
-              <div class="grid place-items-center grid-cols-1 sm:grid-cols-[250px_1fr]">
+              <div class="grid grid-cols-1 sm:grid-cols-[303px_1fr]">
                 {device === "desktop" && (
                   <aside class="place-self-start flex flex-col gap-9">
                     <span class="text-base font-semibold h-12 flex items-center">
@@ -269,14 +292,16 @@ function Result(props: SectionProps<typeof loader>) {
                 )}
 
                 <div class="flex flex-col gap-9">
-                  {device === "desktop" && (
+                  {
+                    /* {device === "desktop" && (
                     <div class="flex justify-between items-center">
                       {results}
                       <div>
                         {sortBy}
                       </div>
                     </div>
-                  )}
+                  )} */
+                  }
                   <PageResult {...props} />
                 </div>
               </div>

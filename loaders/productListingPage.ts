@@ -87,7 +87,8 @@ export default async function loader(
       itemListElement: [
         {
           "@type": "ListItem",
-          item: "Produtos",
+          item: "/insumos-agricolas",
+          name: "Insumos agrícolas",
           position: 0,
         },
       ],
