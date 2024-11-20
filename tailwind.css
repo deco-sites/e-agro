@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-
   /* Allow changing font family via CMS */
   html {
-    font-family: var(--font-family);
+    font-family: "Bradesco Sans", sans-serif;
   }
 
   /** Remove default styles from input[type=number] */
@@ -22,18 +21,42 @@
     overflow: hidden;
     height: 100vh;
   }
-}
 
-.group:disabled .group-disabled\:animate-progress {
-  animation: progress-frame ease normal
-}
-
-@keyframes progress-frame {
-  0% {
-    --dot-progress: 0%
-  }
-
-  to {
-    --dot-progress: 100%
+  @keyframes progress-frame {
+    0% {
+      --dot-progress: 0%
+    }
+  
+    to {
+      --dot-progress: 100%
+    }
   }
 }
+
+@layer components {
+  .group:disabled .group-disabled\:animate-progress {
+    animation: progress-frame ease normal
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+    border-radius: 4px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background-color: #00000033;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #888;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    border-radius: 4px;
+    background-color: #a1a1a1;
+  }
+}
+

@@ -11,58 +11,273 @@
     "<p>Get 10% off today: <strong>NEW10</strong></p>"
   ],
   "logo": {
-    "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/ed9f7e80-86a8-4b72-9809-2e4e2e5f0e53",
+    "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/a7c95258-5e5d-4744-a3db-78ad354f532f/logo_eagro_77d7d9b29c.png",
     "alt": "Deco Storefront",
-    "width": 160,
-    "height": 40
+    "width": 114,
+    "height": 56
   },
   "navItems": [
     {
-      "children": [
-        {
-          "image": [],
-          "children": [],
-          "name": "Hello"
-        },
-        {
-          "image": [],
-          "children": [],
-          "name": "World"
-        }
+      "children": [],
+      "label": "Quem somos",
+      "href": "/sobre",
+      "columns": []
+    },
+    {
+      "children": [],
+      "label": "Linhas de crédito",
+      "href": "/simulacao-de-credito",
+      "columns": []
+    },
+    {
+      "columns": [
+        [
+          {
+            "title": "Implementos agrícolas",
+            "href": "https://e-agro.com.br/loja/implementos-agricolas",
+            "children": [
+              {
+                "label": "Abastecedores de pulverizadores",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/abastecedores-de-pulverizadores"
+              },
+              {
+                "label": "Atomizadores",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/atomizadores"
+              },
+              {
+                "label": "Carretas agrícolas",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/carretas-agricolas"
+              },
+              {
+                "label": "Distribuidor de sementes",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/distribuidor-de-sementes"
+              },
+              {
+                "label": "Distribuidores de fertilizantes",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/distribuidores-de-fertilizantes"
+              },
+              {
+                "label": "Enleiradores rotativos",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/enleiradores-rotativos"
+              },
+              {
+                "label": "Espalhadores de esterco",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/espalhadores-de-esterco"
+              },
+              {
+                "label": "Grades agrícolas e Arados",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/grades-agricolas-e-arados"
+              },
+              {
+                "label": "Guinchos agrícolas",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/guinchos-agricolas"
+              },
+              {
+                "label": "Guindastes",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/guindastes"
+              },
+              {
+                "label": "Misturadores agrícolas",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/misturadores-agricolas"
+              },
+              {
+                "label": "Pás agrícolas",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/pas-agricolas"
+              },
+              {
+                "label": "Perfuradores de solo",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/perfuradores-de-solo"
+              },
+              {
+                "label": "Plainas agrícolas",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/plainas-agricolas"
+              },
+              {
+                "label": "Plataformas agrícolas",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/plataformas-agricolas"
+              },
+              {
+                "label": "Roçadeiras",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/rocadeiras"
+              },
+              {
+                "label": "Segadoras",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/segadoras"
+              },
+              {
+                "label": "Subsoladores",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/subsoladores"
+              },
+              {
+                "label": "Terraceador",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/terraceador"
+              },
+              {
+                "label": "Triturador",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/triturador"
+              },
+              {
+                "label": "Outros",
+                "href": "https://e-agro.com.br/loja/implementos-agricolas/outros"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "title": "Máquinas agrícolas",
+            "href": "https://e-agro.com.br/loja/maquinas-agricolas",
+            "children": [
+              {
+                "label": "Colheitadeiras",
+                "href": "https://e-agro.com.br/loja/maquinas-agricolas/colheitadeiras"
+              },
+              {
+                "label": "Enfardadeiras",
+                "href": "https://e-agro.com.br/loja/maquinas-agricolas/enfardadeira"
+              },
+              {
+                "label": "Plantadeiras",
+                "href": "https://e-agro.com.br/loja/maquinas-agricolas/plantadeiras"
+              },
+              {
+                "label": "Pulverizadores",
+                "href": "https://e-agro.com.br/loja/maquinas-agricolas/pulverizadores"
+              },
+              {
+                "label": "Semeadeiras",
+                "href": "https://e-agro.com.br/loja/maquinas-agricolas/semeadeira"
+              },
+              {
+                "label": "Tratores",
+                "href": "https://e-agro.com.br/loja/maquinas-agricolas/tratores"
+              },
+              {
+                "label": "Outros",
+                "href": "https://e-agro.com.br/loja/maquinas-agricolas/outros"
+              }
+            ]
+          },
+          {
+            "title": "Insumos agrícolas",
+            "href": "https://e-agro.com.br/loja/insumos-agricolas",
+            "children": [
+              {
+                "label": "Fertilizantes",
+                "href": "https://e-agro.com.br/loja/insumos-agricolas/fertilizantes"
+              },
+              {
+                "label": "Sementes",
+                "href": "https://e-agro.com.br/loja/insumos-agricolas/sementes"
+              },
+              {
+                "label": "Outros",
+                "href": "https://e-agro.com.br/loja/insumos-agricolas/outros"
+              }
+            ]
+          },
+          {
+            "title": "Pneus",
+            "href": "https://e-agro.com.br/loja/pneus",
+            "children": [
+              {
+                "label": "Pneus Agrícolas",
+                "href": "https://e-agro.com.br/loja/pneus/pneu-agricola"
+              },
+              {
+                "label": "Pneus Industriais",
+                "href": "https://e-agro.com.br/loja/pneus/pneus-industriais"
+              },
+              {
+                "label": "Pneus para Máquinas Pesadas",
+                "href": "https://e-agro.com.br/loja/pneus/pneus-para-maquinas-pesadas"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "title": "Agricultura digital",
+            "href": "https://e-agro.com.br/loja/agricultura-digital",
+            "children": [
+              {
+                "label": "Drones",
+                "href": "https://e-agro.com.br/loja/agricultura-digital/drones"
+              },
+              {
+                "label": "Pulverização",
+                "href": "https://e-agro.com.br/loja/agricultura-digital/pulverizacao"
+              },
+              {
+                "label": "Soluções para Fazenda",
+                "href": "https://e-agro.com.br/loja/agricultura-digital/solucoes-para-fazenda"
+              },
+              {
+                "label": "Soluções para Gestão",
+                "href": "https://e-agro.com.br/loja/agricultura-digital/solucoes-para-gestao"
+              },
+              {
+                "label": "Outros",
+                "href": "https://e-agro.com.br/loja/agricultura-digital/outros"
+              }
+            ]
+          },
+          {
+            "title": "Máquinas Pesadas",
+            "href": "https://e-agro.com.br/loja/maquinas-pesadas",
+            "children": [
+              {
+                "label": "Escavadeiras",
+                "href": "https://e-agro.com.br/loja/maquinas-pesadas/escavadeiras"
+              },
+              {
+                "label": "Motoniveladoras",
+                "href": "https://e-agro.com.br/loja/maquinas-pesadas/motoniveladoras"
+              },
+              {
+                "label": "Pá Carregadeira",
+                "href": "https://e-agro.com.br/loja/maquinas-pesadas/pa-carregadeira"
+              },
+              {
+                "label": "Retroescavadeiras",
+                "href": "https://e-agro.com.br/loja/maquinas-pesadas/retroescavadeiras"
+              },
+              {
+                "label": "Tratores de Esteira",
+                "href": "https://e-agro.com.br/loja/maquinas-pesadas/tratores-de-esteira"
+              }
+            ]
+          },
+          {
+            "title": "Insumos pecuários",
+            "href": "https://e-agro.com.br/loja/insumos-pecuarios",
+            "children": [
+              {
+                "label": "Nutrição animal",
+                "href": "https://e-agro.com.br/loja/insumos-pecuarios/nutricao-animal"
+              },
+              {
+                "label": "Reprodução de animais",
+                "href": "https://e-agro.com.br/loja/insumos-pecuarios/reproducao-de-animais"
+              }
+            ]
+          },
+          {
+            "title": "Infraestrutura",
+            "href": "https://e-agro.com.br/loja/infraestrutura",
+            "children": [
+              {
+                "label": "Balanças",
+                "href": "https://e-agro.com.br/loja/infraestrutura/balancas-e-basculas"
+              }
+            ]
+          }
+        ]
       ],
-      "@type": "SiteNavigationElement",
-      "url": "/deals",
-      "name": "Deals"
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "url": "/valentines-day",
-      "name": "Valentine's Day",
-      "children": []
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "url": "/women",
-      "name": "Women",
-      "children": []
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "url": "/men",
-      "name": "Men",
-      "children": []
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "url": "/clearance",
-      "name": "Clearance",
-      "children": []
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "url": "/activities",
-      "name": "Activities",
-      "children": []
+      "label": "Produtos da loja",
+      "href": "/loja",
+      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/f169f3d4-8e99-49d8-87dd-f9c197ae970b/cards_home_208x400_desktop_cb9b03a812.jpg",
+      "imageHref": "/parceiros/stara"
     }
   ],
   "loading": "eager"
