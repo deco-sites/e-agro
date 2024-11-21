@@ -304,6 +304,8 @@
   "__resolveType": "website/pages/Page.tsx",
   "path": "/",
   "seo": {
-    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+    "__resolveType": "website/sections/Seo/SeoV2.tsx",
+    "title": "E-agro - Tudo que o agro precisa tem aqui | Ofertas agro",
+    "description": "As melhores soluções em serviços, produtos e parcerias para o produtor rural estão no E-agro de maneira 100% digital. Acesse agora e confira!"
   }
 }

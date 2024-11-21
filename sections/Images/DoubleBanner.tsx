@@ -54,6 +54,6 @@ function DoubleBanner({ banners }: Props) {
   );
 }
 
-export const LoadingFallback = () => <Section.Placeholder height="635px" />;
+export const LoadingFallback = () => <Section.Placeholder height="300px" />;
 
 export default DoubleBanner;

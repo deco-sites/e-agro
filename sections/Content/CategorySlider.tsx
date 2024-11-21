@@ -6,6 +6,7 @@ import Icon from "../../components/ui/Icon.tsx";
 import Slider from "../../components/ui/Slider.tsx";
 import { clx } from "../../sdk/clx.ts";
 import { useId } from "../../sdk/useId.ts";
+import Section from "site/components/ui/Section.tsx";
 
 /**
  * @titleBy title
@@ -83,3 +84,5 @@ export default function CategorySlider({ title, items }: Props) {
     </div>
   );
 }
+
+export const LoadingFallback = () => <Section.Placeholder height="270px" />;

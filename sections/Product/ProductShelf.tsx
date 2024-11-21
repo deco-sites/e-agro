@@ -23,8 +23,8 @@ export default function ProductShelf({ products, title }: Props) {
   );
 }
 export const LoadingFallback = ({ title }: Props) => (
-  <Section.Container>
+  <div class="flex flex-col gap-5 container max-lg:px-4">
     <Title title={title} />
-    <Section.Placeholder height="471px" />
-  </Section.Container>
+    <Section.Placeholder height="440px" />
+  </div>
 );

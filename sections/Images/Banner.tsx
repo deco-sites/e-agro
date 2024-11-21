@@ -39,6 +39,6 @@ function Banner({ desktop, mobile, alt, href }: Props) {
   );
 }
 
-export const LoadingFallback = () => <Section.Placeholder height="635px" />;
+export const LoadingFallback = () => <Section.Placeholder height="320px" />;
 
 export default Banner;
