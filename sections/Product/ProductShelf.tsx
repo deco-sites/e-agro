@@ -1,48 +1,30 @@
 import type { Product } from "apps/commerce/types.ts";
-import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import Title from "site/components/Title.tsx";
 import ProductSlider from "../../components/product/ProductSlider.tsx";
-import Section, {
-  Props as SectionHeaderProps,
-} from "../../components/ui/Section.tsx";
-import { useOffer } from "../../sdk/useOffer.ts";
-import { useSendEvent } from "../../sdk/useSendEvent.ts";
-import { type LoadingFallbackProps } from "@deco/deco";
-export interface Props extends SectionHeaderProps {
+import Section from "../../components/ui/Section.tsx";
+
+export interface Props {
+  title: string;
   products: Product[] | null;
 }
-export default function ProductShelf({ products, title, cta }: Props) {
-  if (!products || products.length === 0) {
-    return null;
-  }
-  const viewItemListEvent = useSendEvent({
-    on: "view",
-    event: {
-      name: "view_item_list",
-      params: {
-        item_list_name: title,
-        items: products.map((product, index) =>
-          mapProductToAnalyticsItem({
-            index,
-            product,
-            ...(useOffer(product.offers)),
-          })
-        ),
-      },
-    },
-  });
-  return (
-    <Section.Container {...viewItemListEvent}>
-      <Section.Header title={title} cta={cta} />
 
-      <ProductSlider products={products} itemListName={title} />
-    </Section.Container>
+export default function ProductShelf({ products, title }: Props) {
+  if (!products?.length) return null;
+
+  return (
+    <div class="flex flex-col gap-5 container max-lg:px-4">
+      <Title title={title} />
+
+      <ProductSlider
+        products={Array(3).fill(products).flat()}
+        itemListName={title}
+      />
+    </div>
   );
 }
-export const LoadingFallback = (
-  { title, cta }: LoadingFallbackProps<Props>,
-) => (
-  <Section.Container>
-    <Section.Header title={title} cta={cta} />
-    <Section.Placeholder height="471px" />;
-  </Section.Container>
+export const LoadingFallback = ({ title }: Props) => (
+  <div class="flex flex-col gap-5 container max-lg:px-4">
+    <Title title={title} />
+    <Section.Placeholder height="440px" />
+  </div>
 );

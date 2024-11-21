@@ -6,6 +6,7 @@ import Icon from "../../components/ui/Icon.tsx";
 import Slider from "../../components/ui/Slider.tsx";
 import { clx } from "../../sdk/clx.ts";
 import { useId } from "../../sdk/useId.ts";
+import Section from "site/components/ui/Section.tsx";
 
 /**
  * @titleBy title
@@ -34,7 +35,7 @@ export default function CategorySlider({ title, items }: Props) {
     >
       <Title title={title} />
 
-      <div class="w-full lg:px-14">
+      <div class="w-full lg:px-14 mb-4">
         <Slider class="carousel carousel-center w-full gap-5">
           {items.map(({ image, title, href }, index) => (
             <Slider.Item
@@ -83,3 +84,5 @@ export default function CategorySlider({ title, items }: Props) {
     </div>
   );
 }
+
+export const LoadingFallback = () => <Section.Placeholder height="270px" />;

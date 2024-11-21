@@ -1,9 +1,8 @@
-import { Product } from "apps/commerce/types.ts";
-import { clx } from "../../sdk/clx.ts";
+import type { Product } from "apps/commerce/types.ts";
+import { useId } from "../../sdk/useId.ts";
 import Icon from "../ui/Icon.tsx";
 import Slider from "../ui/Slider.tsx";
 import ProductCard from "./ProductCard.tsx";
-import { useId } from "../../sdk/useId.ts";
 
 interface Props {
   products: Product[];
@@ -15,44 +14,39 @@ function ProductSlider({ products, itemListName }: Props) {
 
   return (
     <>
-      <div
-        id={id}
-        class="grid grid-rows-1"
-        style={{
-          gridTemplateColumns: "min-content 1fr min-content",
-        }}
-      >
-        <div class="col-start-1 col-span-3 row-start-1 row-span-1">
-          <Slider class="carousel carousel-center sm:carousel-end gap-5 sm:gap-10 w-full">
-            {products?.map((product, index) => (
-              <Slider.Item
+      <div id={id}>
+        <Slider class="carousel carousel-center gap-5 w-full">
+          {products?.map((product, index) => (
+            <Slider.Item
+              index={index}
+              class="carousel-item w-[calc(33.333%-20px+(20px/3))] md:w-[calc(25%-20px+(20px/4))] lg:w-[calc(20%-20px+(20px/5))]"
+            >
+              <ProductCard
                 index={index}
-                class={clx(
-                  "carousel-item",
-                  "first:pl-5 first:sm:pl-0",
-                  "last:pr-5 last:sm:pr-0",
-                )}
-              >
-                <ProductCard
-                  index={index}
-                  product={product}
-                  itemListName={itemListName}
-                  class="w-[287px] sm:w-[300px]"
-                />
-              </Slider.Item>
-            ))}
-          </Slider>
-        </div>
+                product={product}
+                itemListName={itemListName}
+                class="w-[210px] lg:w-[220px]"
+              />
+            </Slider.Item>
+          ))}
+        </Slider>
 
-        <div class="col-start-1 col-span-1 row-start-1 row-span-1 z-10 self-center p-2 relative bottom-[15%]">
-          <Slider.PrevButton class="hidden sm:flex disabled:invisible btn btn-outline btn-sm btn-circle no-animation">
-            <Icon id="chevron-right" class="rotate-180" />
+        <div class="justify-center flex items-center gap-2 my-7">
+          <Slider.PrevButton class="hidden md:flex items-center justify-center text-black disabled:text-[#a7a8ac]">
+            <Icon id="chevron-right" size={24} class="rotate-180" />
           </Slider.PrevButton>
-        </div>
 
-        <div class="col-start-3 col-span-1 row-start-1 row-span-1 z-10 self-center p-2 relative bottom-[15%]">
-          <Slider.NextButton class="hidden sm:flex disabled:invisible btn btn-outline btn-sm btn-circle no-animation">
-            <Icon id="chevron-right" />
+          <div class="hidden md:flex items-center gap-2">
+            {products.map((_, index) => (
+              <Slider.Dot
+                index={index}
+                class="bg-[#d8dcdd] disabled:bg-[#0c881e] transition-colors size-2 rounded-full"
+              />
+            ))}
+          </div>
+
+          <Slider.NextButton class="hidden md:flex items-center justify-center text-black disabled:text-[#a7a8ac]">
+            <Icon id="chevron-right" size={24} />
           </Slider.NextButton>
         </div>
       </div>

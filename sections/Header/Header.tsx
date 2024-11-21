@@ -6,9 +6,7 @@ import NavItem, {
   type NavItemProps,
 } from "../../components/header/NavItem.tsx";
 import Searchbar from "../../components/search/Searchbar/Form.tsx";
-import Drawer from "../../components/ui/Drawer.tsx";
 import Icon from "../../components/ui/Icon.tsx";
-import { SIDEMENU_DRAWER_ID } from "../../constants.ts";
 
 export interface Logo {
   src: ImageWidget;
@@ -27,10 +25,10 @@ export interface Props {
   logo: Logo;
 }
 
+const MENU_ID = "menu";
+
 const Desktop = ({ navItems, logo }: Props) => (
   <>
-    <div class="w-full h-full fixed left-0 top-0 z-10 opacity-0 pointer-events-none [&:has(+div_[data-column]:hover)]:opacity-100 transition-opacity bg-[rgba(0,0,0,0.5)]" />
-
     <div class="bg-white relative z-20">
       <div class="flex flex-col gap-4 container">
         <div class="flex items-center gap-10 h-[72px]">
@@ -69,18 +67,8 @@ const Desktop = ({ navItems, logo }: Props) => (
 
 const Mobile = ({ logo }: Props) => (
   <>
-    <Drawer
-      id={SIDEMENU_DRAWER_ID}
-      aside={
-        <Drawer.Aside title="Menu" drawer={SIDEMENU_DRAWER_ID}>
-          {/* <Menu navItems={navItems ?? []} /> */}
-          <></>
-        </Drawer.Aside>
-      }
-    />
-
     <div class="flex items-center justify-between px-4 h-[72px]">
-      <label for={SIDEMENU_DRAWER_ID} class="">
+      <label for={MENU_ID}>
         <Icon id="menu" size={32} class="text-[#0c881e]" />
       </label>
 
@@ -102,28 +90,62 @@ const Mobile = ({ logo }: Props) => (
   </>
 );
 
+const Menu = (_props: Props) => (
+  <div>
+    <input type="checkbox" id={MENU_ID} class="hidden peer" />
+    <input type="checkbox" id="next-menu-id-page" class="hidden peer/page" />
+
+    <div class="absolute left-0 top-[168px] bg-white -translate-x-full peer-checked:translate-x-0 transition-transform h-[calc(100vh-168px)] z-30 px-5 py-8 flex flex-col gap-3 w-[300px]">
+      <a href="/" class="flex items-center gap-2 text-sm">
+        <Icon id="home" size={20} class="text-[#0c881e]" />
+        Início
+      </a>
+      <a href="/sobre" class="flex items-center gap-2 text-sm">
+        <Icon id="quem-somos" size={20} class="text-[#0c881e]" />
+        Quem somos
+      </a>
+      <a href="/simulacao-de-credito" class="flex items-center gap-2 text-sm">
+        <Icon id="money" size={20} class="text-[#0c881e]" />
+        Linhas de crédito
+      </a>
+      <label for="next-menu-id-page" class="flex items-center gap-2 text-sm">
+        <Icon id="cart" size={20} class="text-[#0c881e]" />
+        Produtos da loja
+        <span>{">"}</span>
+      </label>
+    </div>
+  </div>
+);
+
 export default function Header(props: Props) {
   const device = useDevice();
   const isDesktop = device === "desktop";
 
   return (
-    <header class="bg-white w-full z-40">
-      {isDesktop ? <Desktop {...props} /> : <Mobile {...props} />}
+    <>
+      <div class="w-full h-full fixed left-0 top-0 z-10 opacity-0 pointer-events-none [&:has(+header_:is([data-column]:hover,#menu:checked))]:opacity-100 [&:has(+header_:is([data-column]:hover,#menu:checked))]:pointer-events-auto transition-opacity bg-[rgba(0,0,0,0.5)]" />
 
-      <div class="bg-[#f7f7f7] h-24 lg:h-14 flex items-center max-lg:px-4">
-        <div class="flex flex-col lg:flex-row gap-2 lg:items-center justify-between w-full lg:container">
-          <Searchbar />
+      <header class="bg-white w-full relative max-lg:z-40">
+        <div class="w-full lg:z-40">
+          {isDesktop ? <Desktop {...props} /> : <Mobile {...props} />}
+          {!isDesktop && <Menu {...props} />}
+        </div>
 
-          <div class="flex items-center gap-4 divide-x divide-[#A8ACAC] h-8">
-            <Bag />
-            <div class="flex items-center gap-2 pl-4 h-full cursor-pointer w-full">
-              <Icon id="location" size={18} class="text-[#0c881e]" />
-              <span class="text-black text-sm">Região de entrega</span>
+        <div class="bg-[#f7f7f7] h-24 lg:h-14 flex items-center max-lg:px-4">
+          <div class="flex flex-col lg:flex-row gap-2 lg:items-center justify-between w-full lg:container">
+            <Searchbar />
+
+            <div class="flex items-center gap-4 divide-x divide-[#A8ACAC] h-8">
+              <Bag />
+              <div class="flex items-center gap-2 pl-4 h-full cursor-pointer w-full">
+                <Icon id="location" size={18} class="text-[#0c881e]" />
+                <span class="text-black text-sm">Região de entrega</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
 

@@ -4,13 +4,11 @@ import Image from "apps/website/components/Image.tsx";
 import { clx } from "../../sdk/clx.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { relative } from "../../sdk/url.ts";
+import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
 import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
-import WishlistButton from "../wishlist/WishlistButton.tsx";
-import AddToCartButton from "./AddToCartButton.tsx";
 import { Ring } from "./ProductVariantSelector.tsx";
-import { useId } from "../../sdk/useId.ts";
 
 interface Props {
   product: Product;
@@ -44,7 +42,7 @@ function ProductCard({
   const title = isVariantOf?.name ?? product.name;
   const [front, back] = images ?? [];
 
-  const { listPrice, price, seller = "1", availability } = useOffer(offers);
+  const { listPrice, price, availability } = useOffer(offers);
   const inStock = availability === "https://schema.org/InStock";
   const possibilities = useVariantPossibilities(hasVariant, product);
   const firstSkuVariations = Object.entries(possibilities)?.[0];
@@ -57,9 +55,6 @@ function ProductCard({
 
   const item = mapProductToAnalyticsItem({ product, price, listPrice, index });
 
-  {
-    /* Add click event to dataLayer */
-  }
   const event = useSendEvent({
     on: "click",
     event: {

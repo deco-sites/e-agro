@@ -3,6 +3,7 @@ import { Picture, Source } from "apps/website/components/Picture.tsx";
 import Icon from "../../components/ui/Icon.tsx";
 import Slider from "../../components/ui/Slider.tsx";
 import { useId } from "../../sdk/useId.ts";
+import Section from "site/components/ui/Section.tsx";
 
 /**
  * @titleBy alt
@@ -98,5 +99,7 @@ function Carousel({ images = [], preload }: Props) {
     </div>
   );
 }
+
+export const LoadingFallback = () => <Section.Placeholder height="500px" />;
 
 export default Carousel;

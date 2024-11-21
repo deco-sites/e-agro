@@ -33,7 +33,8 @@ export default function ProductDetails({ page }: Props) {
     <div>
       <h2 class="text-2xl font-semibold text-black">
         Descrição do produto
-        <span class="bg-[#35c537] w-[18px] h-[18px] inline-block ml-1 rounded-[18px_0]"></span>
+        <span class="bg-[#35c537] w-[18px] h-[18px] inline-block ml-1 rounded-[18px_0]">
+        </span>
       </h2>
       <div
         class="mt-2 text-sm leading-6"
@@ -52,7 +53,7 @@ export default function ProductDetails({ page }: Props) {
         class={clx(
           "container grid",
           "grid-cols-1 py-0 gap-2",
-          "sm:grid-cols-2 sm:gap-24"
+          "sm:grid-cols-2 sm:gap-24",
         )}
       >
         <div class="flex flex-col sm:gap-12">

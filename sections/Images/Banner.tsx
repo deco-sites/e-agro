@@ -1,5 +1,6 @@
 import type { ImageWidget } from "apps/admin/widgets.ts";
-import { Picture, Source } from "apps/website/components/Picture.tsx";
+import { Picture } from "apps/website/components/Picture.tsx";
+import { SourceWithFitProp } from "../../components/SourceWithFitProp.tsx";
 import Section from "../../components/ui/Section.tsx";
 
 export interface Props {
@@ -17,17 +18,19 @@ function Banner({ desktop, mobile, alt, href }: Props) {
     <div class="container rounded overflow-hidden max-lg:px-4 mb-8">
       <Component {...Props}>
         <Picture>
-          <Source
+          <SourceWithFitProp
             media="(max-width: 640px)"
             src={mobile}
             width={335}
             height={572}
+            fit="contain"
           />
-          <Source
+          <SourceWithFitProp
             media="(min-width: 640px)"
             src={desktop}
             width={1320}
             height={480}
+            fit="contain"
           />
           <img src={desktop} alt={alt} class="w-full object-cover" />
         </Picture>
@@ -36,6 +39,6 @@ function Banner({ desktop, mobile, alt, href }: Props) {
   );
 }
 
-export const LoadingFallback = () => <Section.Placeholder height="635px" />;
+export const LoadingFallback = () => <Section.Placeholder height="320px" />;
 
 export default Banner;
