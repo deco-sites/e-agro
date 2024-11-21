@@ -25,7 +25,7 @@ export default function Searchbar() {
       <input
         id="search"
         tabIndex={0}
-        class="text-black border border-[#a7a8ac] rounded-[10px] pl-9 pr-6 h-full text-sm w-full outline-0 focus-visible:shadow-[#0670bf_0px_0px_2px_2px]"
+        class="text-black border border-[#a7a8ac] rounded-[10px] pl-9 pr-6 h-full text-sm w-full lg:max-w-[300px] outline-0 focus-visible:shadow-[#0670bf_0px_0px_2px_2px]"
         placeholder="Busca"
         autocomplete="off"
       />

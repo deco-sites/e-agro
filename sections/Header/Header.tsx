@@ -144,8 +144,10 @@ export default function Header(props: Props) {
             <div class="flex items-center gap-4 divide-x divide-[#A8ACAC] h-8">
               <Bag />
               <div class="flex items-center gap-2 pl-4 h-full cursor-pointer w-full">
-                <Icon id="location" size={18} class="text-[#0c881e]" />
-                <span class="text-black text-sm">Região de entrega</span>
+                <Icon id="location" size={18} class="text-[#0c881e] shrink-0" />
+                <span class="text-black text-sm whitespace-nowrap">
+                  Região de entrega
+                </span>
               </div>
             </div>
           </div>
