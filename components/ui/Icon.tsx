@@ -31,6 +31,7 @@ export type AvailableIcons =
   | "ChevronDown"
   | "Trash"
   | "home"
+  | "circles"
   | "quem-somos"
   | "money"
   | "MoneyCurrency";

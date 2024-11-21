@@ -28,7 +28,6 @@ interface Props {
 export default function CategorySlider({ title, items }: Props) {
   const id = useId();
   const isDesktop = useDevice() === "desktop";
-  const visibleItems = isDesktop ? 6 : 3;
 
   return (
     <div
@@ -73,7 +72,7 @@ export default function CategorySlider({ title, items }: Props) {
             index={index}
             class={clx(
               "bg-[#d8dcdd] disabled:bg-[#0c881e] transition-colors size-2 rounded-full",
-              index % visibleItems !== 0 && "hidden",
+              isDesktop && index % 6 !== 0 && "hidden",
             )}
           />
         ))}

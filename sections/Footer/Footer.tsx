@@ -55,7 +55,7 @@ function Footer(
               />
             </a>
 
-            <div class="w-full flex gap-2">
+            <div class="w-full flex flex-col sm:flex-row gap-2">
               {navItems.map(({ title, children }) => (
                 <div class="flex flex-col gap-4 w-[160px]">
                   <span class="text-[#171717] font-semibold">{title}</span>

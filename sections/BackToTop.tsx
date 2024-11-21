@@ -1,4 +1,5 @@
 import { useScript } from "@deco/deco/hooks";
+import Section from "site/components/ui/Section.tsx";
 
 export default function BackToTop() {
   return (
@@ -13,3 +14,5 @@ export default function BackToTop() {
     </div>
   );
 }
+
+export const LoadingFallback = () => <Section.Placeholder height="80px" />;

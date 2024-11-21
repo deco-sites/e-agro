@@ -137,7 +137,9 @@ export default function Header(props: Props) {
 
         <div class="bg-[#f7f7f7] h-24 lg:h-14 flex items-center max-lg:px-4">
           <div class="flex flex-col lg:flex-row gap-2 lg:items-center justify-between w-full lg:container">
-            <Searchbar />
+            <div class="w-full h-8">
+              <Searchbar />
+            </div>
 
             <div class="flex items-center gap-4 divide-x divide-[#A8ACAC] h-8">
               <Bag />
