@@ -11,12 +11,32 @@ import OutOfStock from "./OutOfStock.tsx";
 import ProductSelector from "./ProductVariantSelector.tsx";
 import SeeMore from "../ui/SeeMore.tsx";
 import Icon from "../ui/Icon.tsx";
+import { useDevice, useScript } from "@deco/deco/hooks";
 
 interface Props {
   page: ProductDetailsPage | null;
 }
 
+const showWhenScroll = (id: string, device: string) => {
+  const scrollThreshold = device !== "mobile" ? 500 : 300;
+
+  const handleScroll = () => {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    if (window.scrollY > scrollThreshold) {
+      element.classList.remove("translate-y-full");
+    } else {
+      element.classList.add("translate-y-full");
+    }
+  };
+
+  // Add scroll listener
+  window.addEventListener("scroll", handleScroll);
+};
+
 function ProductInfo({ page }: Props) {
+  const device = useDevice();
   const id = useId();
 
   if (page === null) {
@@ -63,11 +83,12 @@ function ProductInfo({ page }: Props) {
   const installmentValue = Math.ceil(price / installmentQuantity);
 
   //Checks if the variant name is "title"/"default title" and if so, the SKU Selector div doesn't render
-  const hasValidVariants = isVariantOf?.hasVariant?.some(
-    (variant) =>
-      variant?.name?.toLowerCase() !== "title" &&
-      variant?.name?.toLowerCase() !== "default title",
-  ) ?? false;
+  const hasValidVariants =
+    isVariantOf?.hasVariant?.some(
+      (variant) =>
+        variant?.name?.toLowerCase() !== "title" &&
+        variant?.name?.toLowerCase() !== "default title"
+    ) ?? false;
 
   return (
     <div {...viewItemEvent} class="flex flex-col" id={id}>
@@ -103,17 +124,17 @@ function ProductInfo({ page }: Props) {
 
       {/* Add to Cart and Favorites button */}
       <div class="mt-4 sm:mt-10 flex gap-2">
-        {availability === "https://schema.org/InStock"
-          ? (
-            <AddToCartButton
-              item={item}
-              seller={seller}
-              product={product}
-              class="btn no-animation border-primary text-primary"
-              disabled={false}
-            />
-          )
-          : <OutOfStock productID={productID} />}
+        {availability === "https://schema.org/InStock" ? (
+          <AddToCartButton
+            item={item}
+            seller={seller}
+            product={product}
+            class="btn no-animation border-primary text-primary"
+            disabled={false}
+          />
+        ) : (
+          <OutOfStock productID={productID} />
+        )}
       </div>
 
       {/* Shipping Simulation */}
@@ -194,10 +215,8 @@ function ProductInfo({ page }: Props) {
               viewBox="0 0 32 32"
               aria-hidden="true"
             >
-              <path d="M29.25,6.76a6,6,0,0,0-8.5,0l1.42,1.42a4,4,0,1,1,5.67,5.67l-8,8a4,4,0,1,1-5.67-5.66l1.41-1.42-1.41-1.42-1.42,1.42a6,6,0,0,0,0,8.5A6,6,0,0,0,17,25a6,6,0,0,0,4.27-1.76l8-8A6,6,0,0,0,29.25,6.76Z">
-              </path>
-              <path d="M4.19,24.82a4,4,0,0,1,0-5.67l8-8a4,4,0,0,1,5.67,0A3.94,3.94,0,0,1,19,14a4,4,0,0,1-1.17,2.85L15.71,19l1.42,1.42,2.12-2.12a6,6,0,0,0-8.51-8.51l-8,8a6,6,0,0,0,0,8.51A6,6,0,0,0,7,28a6.07,6.07,0,0,0,4.28-1.76L9.86,24.82A4,4,0,0,1,4.19,24.82Z">
-              </path>
+              <path d="M29.25,6.76a6,6,0,0,0-8.5,0l1.42,1.42a4,4,0,1,1,5.67,5.67l-8,8a4,4,0,1,1-5.67-5.66l1.41-1.42-1.41-1.42-1.42,1.42a6,6,0,0,0,0,8.5A6,6,0,0,0,17,25a6,6,0,0,0,4.27-1.76l8-8A6,6,0,0,0,29.25,6.76Z"></path>
+              <path d="M4.19,24.82a4,4,0,0,1,0-5.67l8-8a4,4,0,0,1,5.67,0A3.94,3.94,0,0,1,19,14a4,4,0,0,1-1.17,2.85L15.71,19l1.42,1.42,2.12-2.12a6,6,0,0,0-8.51-8.51l-8,8a6,6,0,0,0,0,8.51A6,6,0,0,0,7,28a6.07,6.07,0,0,0,4.28-1.76L9.86,24.82A4,4,0,0,1,4.19,24.82Z"></path>
             </svg>
           </div>
         </div>
@@ -213,6 +232,31 @@ function ProductInfo({ page }: Props) {
           </a>
         </span>
       </div>
+      <div
+        id={`${id}-fixed-bottom-section`}
+        class="fixed translate-y-full bg-white shadow-[#00000026_0px_-5px_10px] left-0 right-0 bottom-0 z-50 transition"
+      >
+        <div class="container p-4 sm:py-4 sm:px-8 flex flex-col sm:flex-row justify-between">
+          <div class="flex flex-col">
+            <div class={clx("text-base sm:text-xl")}>{title}</div>
+            <div class="text-xl sm:text-2xl font-semibold text-base-400">
+              {formatPrice(price, offers?.priceCurrency)}
+            </div>
+          </div>
+          <div></div>
+        </div>
+      </div>
+
+      <script
+        type="module"
+        dangerouslySetInnerHTML={{
+          __html: useScript(
+            showWhenScroll,
+            `${id}-fixed-bottom-section`,
+            device
+          ),
+        }}
+      />
     </div>
   );
 }
