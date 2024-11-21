@@ -46,6 +46,26 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
+        "__resolveType": "site/sections/Product/ProductShelf.tsx",
+        "title": "Mais visualizados na categoria",
+        "products": {
+          "__resolveType": "site/loaders/productListPage.ts",
+          "limit": 36,
+          "mobileLimit": 16,
+          "filtersParams": [
+            {
+              "key": "Híbrido",
+              "value": "Sim"
+            }
+          ],
+          "count": 5
+        },
+        "titleVariant": "black"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
         "__resolveType": "Footer"
       }
     }

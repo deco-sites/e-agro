@@ -8,14 +8,19 @@ export interface Props {
   title: string;
   /** @title Produtos */
   products: Product[] | null;
+  /**
+   * @title Estilo do Título
+   * @default blue
+   */
+  titleVariant?: "blue" | "black";
 }
 
-export default function ProductShelf({ products, title }: Props) {
+export default function ProductShelf({ products, title, titleVariant }: Props) {
   if (!products?.length) return null;
 
   return (
     <div class="flex flex-col gap-5 container max-lg:px-4 mb-6">
-      <Title title={title} />
+      <Title title={title} variant={titleVariant} />
 
       <ProductSlider
         products={Array(3).fill(products).flat()}

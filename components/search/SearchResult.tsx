@@ -10,8 +10,9 @@ import { useSendEvent } from "../../sdk/useSendEvent.ts";
 import Breadcrumb from "../ui/Breadcrumb.tsx";
 import Drawer from "../ui/Drawer.tsx";
 // import Sort from "./Sort.tsx";
-import { useDevice, useScript, useSection } from "@deco/deco/hooks";
 import { type SectionProps } from "@deco/deco";
+import { useDevice, useScript } from "@deco/deco/hooks";
+import Pagination from "site/components/search/Pagination.tsx";
 export interface Layout {
   /**
    * @title Pagination
@@ -62,41 +63,33 @@ const useUrlRebased = (
   return url;
 };
 function PageResult(props: SectionProps<typeof loader>) {
-  const { layout, startingPage = 0, url, partial } = props;
+  const { layout, startingPage = 0 } = props;
   const page = props.page!;
   const { products, pageInfo } = page;
   const perPage = pageInfo?.recordPerPage || products.length;
   const zeroIndexedOffsetPage = pageInfo.currentPage - startingPage;
   const offset = zeroIndexedOffsetPage * perPage;
-  const nextPageUrl = useUrlRebased(pageInfo.nextPage, url);
-  const prevPageUrl = useUrlRebased(pageInfo.previousPage, url);
-  const partialPrev = useSection({
-    href: prevPageUrl,
-    props: { partial: "hideMore" },
-  });
-  const partialNext = useSection({
-    href: nextPageUrl,
-    props: { partial: "hideLess" },
-  });
+  // const nextPageUrl = useUrlRebased(pageInfo.nextPage, url);
+  // const prevPageUrl = useUrlRebased(pageInfo.previousPage, url);
+  // const partialPrev = useSection({
+  //   href: prevPageUrl,
+  //   props: { partial: "hideMore" },
+  // });
+  // const partialNext = useSection({
+  //   href: nextPageUrl,
+  //   props: { partial: "hideLess" },
+  // });
   const infinite = layout?.pagination !== "pagination";
   return (
     <div class="grid grid-flow-row grid-cols-1 place-items-center">
-      <div
-        class={clx(
-          "pb-2 sm:pb-10",
-          (!prevPageUrl || partial === "hideLess") && "hidden",
-        )}
-      >
-        <a
-          rel="prev"
-          class="btn btn-ghost"
-          hx-swap="outerHTML show:parent:top"
-          hx-get={partialPrev}
-        >
-          <span class="inline [.htmx-request_&]:hidden">Show Less</span>
-          <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
-        </a>
-      </div>
+      {
+        /* <div class={clx('pb-2 sm:pb-10', (!prevPageUrl || partial === 'hideLess') && 'hidden')}>
+                <a rel='prev' class='btn btn-ghost' hx-swap='outerHTML show:parent:top' hx-get={partialPrev}>
+                    <span class='inline [.htmx-request_&]:hidden'>Show Less</span>
+                    <span class='loading loading-spinner hidden [.htmx-request_&]:block' />
+                </a>
+            </div> */
+      }
 
       <div
         data-product-list
@@ -118,57 +111,32 @@ function PageResult(props: SectionProps<typeof loader>) {
         ))}
       </div>
 
-      <div class={clx("pt-2 sm:pt-10 w-full", "")}>
+      <div class="py-10">
         {infinite
           ? (
             <div class="flex justify-center [&_section]:contents">
-              <a
-                rel="next"
-                class={clx(
-                  "btn btn-ghost",
-                  (!nextPageUrl || partial === "hideMore") && "hidden",
-                )}
-                hx-swap="outerHTML show:parent:top"
-                hx-get={partialNext}
-              >
-                <span class="inline [.htmx-request_&]:hidden">Show More</span>
-                <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
-              </a>
+              {
+                /* <a
+                            rel='next'
+                            class={clx('btn btn-ghost', (!nextPageUrl || partial === 'hideMore') && 'hidden')}
+                            hx-swap='outerHTML show:parent:top'
+                            hx-get={partialNext}
+                        >
+                            <span class='inline [.htmx-request_&]:hidden'>Show More</span>
+                            <span class='loading loading-spinner hidden [.htmx-request_&]:block' />
+                        </a> */
+              }
             </div>
           )
-          : (
-            <div class={clx("join", infinite && "hidden")}>
-              <a
-                rel="prev"
-                aria-label="previous page link"
-                href={prevPageUrl ?? "#"}
-                disabled={!prevPageUrl}
-                class="btn btn-ghost join-item"
-              >
-                <Icon id="chevron-right" class="rotate-180" />
-              </a>
-              <span class="btn btn-ghost join-item">
-                Page {zeroIndexedOffsetPage + 1}
-              </span>
-              <a
-                rel="next"
-                aria-label="next page link"
-                href={nextPageUrl ?? "#"}
-                disabled={!nextPageUrl}
-                class="btn btn-ghost join-item"
-              >
-                <Icon id="chevron-right" />
-              </a>
-            </div>
-          )}
+          : <Pagination pageInfo={pageInfo} />}
       </div>
     </div>
   );
 }
 const setPageQuerystring = (page: string, id: string) => {
-  const element = document
-    .getElementById(id)
-    ?.querySelector("[data-product-list]");
+  const element = document.getElementById(id)?.querySelector(
+    "[data-product-list]",
+  );
   if (!element) {
     return;
   }

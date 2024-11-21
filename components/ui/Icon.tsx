@@ -32,6 +32,7 @@ export type AvailableIcons =
   | "Trash"
   | "home"
   | "circles"
+  | "chevron-right-fill"
   | "quem-somos"
   | "money"
   | "MoneyCurrency"
