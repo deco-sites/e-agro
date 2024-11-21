@@ -47,7 +47,11 @@
         "__resolveType": "site/sections/Product/ProductShelf.tsx",
         "title": "Mais produtos deste vendedor",
         "products": {
-          "__resolveType": "site/loaders/productsFromJson.ts"
+          "__resolveType": "site/loaders/productListPage.ts",
+          "limit": 15,
+          "mobileLimit": 15,
+          "filtersParams": [],
+          "count": 5
         }
       }
     },
