@@ -9,7 +9,7 @@ const show = new Set(["color", "size"]);
 
 export const useVariantPossibilities = (
   variants: ProductLeaf[],
-  selected: ProductLeaf
+  selected: ProductLeaf,
 ): Possibilities => {
   const possibilities: Possibilities = {};
   const selectedSpecs = new Set(selected.additionalProperty?.map(hash));
@@ -30,8 +30,7 @@ export const useVariantPossibilities = (
       }
 
       // First row is always selectable
-      const isSelectable =
-        it === 0 ||
+      const isSelectable = it === 0 ||
         specs.every((s) => s.name === name || selectedSpecs.has(hash(s)));
 
       possibilities[name][value] = isSelected

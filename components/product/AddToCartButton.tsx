@@ -16,7 +16,7 @@ const onClick = () => {
   const button = event?.currentTarget as HTMLButtonElement | null;
   const container = button!.closest<HTMLDivElement>("div[data-cart-item]")!;
   const { item, platformProps } = JSON.parse(
-    decodeURIComponent(container.getAttribute("data-cart-item")!)
+    decodeURIComponent(container.getAttribute("data-cart-item")!),
   );
   window.STOREFRONT.CART.addToCart(item, platformProps);
 };
@@ -25,7 +25,9 @@ const onChange = () => {
   const input = event!.currentTarget as HTMLInputElement;
   const wrapper = input!.closest("div[data-cart-item]")!;
   const productID = wrapper.getAttribute("data-item-id")!;
-  const buyNow = wrapper.querySelector("[data-buy-full-price]");
+  const buyNow = wrapper.querySelector(
+    "[data-buy-full-price]",
+  ) as HTMLButtonElement;
 
   const fp = new Intl.NumberFormat("pt-br", {
     style: "currency",
@@ -35,7 +37,7 @@ const onChange = () => {
   const quantity = Number(input.value);
   buyNow.setAttribute(
     "data-value",
-    fp.format(Number(buyNow.getAttribute("data-unit-price") ?? 0) * quantity)
+    fp.format(Number(buyNow.getAttribute("data-unit-price") ?? 0) * quantity),
   );
   if (!input.validity.valid) {
     return;
@@ -47,10 +49,10 @@ const onLoad = (id: string) => {
   window.STOREFRONT.CART.subscribe((sdk) => {
     const container = document.getElementById(id);
     const checkbox = container?.querySelector<HTMLInputElement>(
-      'input[type="checkbox"]'
+      'input[type="checkbox"]',
     );
     const input = container?.querySelector<HTMLInputElement>(
-      'input[type="number"]'
+      'input[type="number"]',
     );
     const itemID = container?.getAttribute("data-item-id")!;
     const quantity = sdk.getQuantity(itemID) || 1;
@@ -86,7 +88,7 @@ const useAddToCart = ({ product, seller }: Props) => {
       quantity: 1,
       itemId: productID,
       attributes: Object.fromEntries(
-        additionalProperty.map(({ name, value }) => [name, value])
+        additionalProperty.map(({ name, value }) => [name, value]),
       ),
     };
   }
@@ -102,7 +104,7 @@ const useAddToCart = ({ product, seller }: Props) => {
       itemId: Number(productGroupID),
       add_to_cart_enhanced: "1",
       attributes: Object.fromEntries(
-        additionalProperty.map(({ name, value }) => [name, value])
+        additionalProperty.map(({ name, value }) => [name, value]),
       ),
     };
   }
@@ -125,7 +127,7 @@ function AddToCartButton(props: Props) {
       class="flex flex-col gap-2 sm:flex-row w-full"
       data-item-id={product.productID}
       data-cart-item={encodeURIComponent(
-        JSON.stringify({ item, platformProps })
+        JSON.stringify({ item, platformProps }),
       )}
     >
       <input type="checkbox" class="hidden peer" />
@@ -155,7 +157,7 @@ function AddToCartButton(props: Props) {
         data-value={formatPrice(product.offers?.highPrice, "BRL")}
         class={clx(
           "flex-grow peer-checked:flex",
-          "btn btn-primary after:content-[attr(data-value)]"
+          "btn btn-primary after:content-[attr(data-value)]",
         )}
         hx-on:click={useScript(onClick)}
       >

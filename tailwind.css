@@ -67,4 +67,36 @@
     border: none;
     height: auto;
   }
+
+  .custom-accordion {
+    width: 100%;
+  }
+
+  .custom-accordion-title {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .custom-accordion-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 250ms grid-template-rows ease;
+  }
+
+  .custom-accordion .custom-accordion-input:checked ~ .custom-accordion-body {
+    grid-template-rows: 1fr;
+  }
+
+  .custom-accordion
+    .custom-accordion-input:checked
+    ~ .custom-accordion-title
+    .custom-accordion-indicator {
+    transform: rotate(180deg);
+    transform-origin: center;
+    transition: transform 250ms ease;
+  }
+
+  .custom-accordion-body > .custom-accordion-wrapper {
+    overflow: hidden;
+  }
 }

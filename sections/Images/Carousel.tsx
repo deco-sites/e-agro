@@ -2,9 +2,7 @@ import type { ImageWidget } from "apps/admin/widgets.ts";
 import { Picture, Source } from "apps/website/components/Picture.tsx";
 import Icon from "../../components/ui/Icon.tsx";
 import Slider from "../../components/ui/Slider.tsx";
-import { clx } from "../../sdk/clx.ts";
 import { useId } from "../../sdk/useId.ts";
-import { useSendEvent } from "../../sdk/useSendEvent.ts";
 
 /**
  * @titleBy alt
@@ -19,16 +17,8 @@ export interface Banner {
   /** @description Image's alt text */
   alt: string;
 
-  action?: {
-    /** @description when user clicks on the image, go to this link */
-    href: string;
-    /** @description Image text title */
-    title: string;
-    /** @description Image text subtitle */
-    subTitle: string;
-    /** @description Button label */
-    label: string;
-  };
+  /** @description when user clicks on the image, go to this link */
+  href?: string;
 }
 
 export interface Props {
@@ -38,154 +28,73 @@ export interface Props {
    * @description Check this option when this banner is the biggest image on the screen for image optimizations
    */
   preload?: boolean;
-
-  /**
-   * @title Autoplay interval
-   * @description time (in seconds) to start the carousel autoplay
-   */
-  interval?: number;
 }
 
-function BannerItem(
-  { image, lcp }: { image: Banner; lcp?: boolean },
-) {
-  const {
-    alt,
-    mobile,
-    desktop,
-    action,
-  } = image;
-  const params = { promotion_name: image.alt };
-
-  const selectPromotionEvent = useSendEvent({
-    on: "click",
-    event: { name: "select_promotion", params },
-  });
-
-  const viewPromotionEvent = useSendEvent({
-    on: "view",
-    event: { name: "view_promotion", params },
-  });
-
-  return (
-    <a
-      {...selectPromotionEvent}
-      href={action?.href ?? "#"}
-      aria-label={action?.label}
-      class="relative block overflow-y-hidden w-full"
-    >
-      {action && (
-        <div
-          class={clx(
-            "absolute h-full w-full top-0 left-0",
-            "flex flex-col justify-center items-center",
-            "px-5 sm:px-0",
-            "sm:left-40 sm:items-start sm:max-w-96",
-          )}
-        >
-          <span class="text-7xl font-bold text-base-100">
-            {action.title}
-          </span>
-          <span class="font-normal text-base text-base-100 pt-4 pb-12">
-            {action.subTitle}
-          </span>
-          <button
-            class="btn btn-primary btn-outline border-0 bg-base-100 min-w-[180px]"
-            aria-label={action.label}
-          >
-            {action.label}
-          </button>
-        </div>
-      )}
-      <Picture preload={lcp} {...viewPromotionEvent}>
-        <Source
-          media="(max-width: 767px)"
-          fetchPriority={lcp ? "high" : "auto"}
-          src={mobile}
-          width={412}
-          height={660}
-        />
-        <Source
-          media="(min-width: 768px)"
-          fetchPriority={lcp ? "high" : "auto"}
-          src={desktop}
-          width={1440}
-          height={600}
-        />
-        <img
-          class="object-cover w-full h-full"
-          loading={lcp ? "eager" : "lazy"}
-          src={desktop}
-          alt={alt}
-        />
-      </Picture>
-    </a>
-  );
-}
-
-function Carousel({ images = [], preload, interval }: Props) {
+function Carousel({ images = [], preload }: Props) {
   const id = useId();
 
   return (
     <div
       id={id}
-      class={clx(
-        "grid",
-        "grid-rows-[1fr_32px_1fr_64px]",
-        "grid-cols-[32px_1fr_32px] min-h-[660px]",
-        "sm:grid-cols-[112px_1fr_112px] sm:min-h-min",
-        "w-screen",
-      )}
+      class="flex flex-col items-center gap-4 relative container mt-2 mb-10"
     >
-      <div class="col-span-full row-span-full">
-        <Slider class="carousel carousel-center w-full gap-6">
-          {images.map((image, index) => (
+      <Slider class="carousel carousel-center w-full">
+        {images.map(({ desktop, mobile, alt, href }, index) => {
+          const lcp = index === 0 && preload;
+
+          return (
             <Slider.Item index={index} class="carousel-item w-full">
-              <BannerItem image={image} lcp={index === 0 && preload} />
+              <a href={href} class="block w-full rounded overflow-hidden">
+                <Picture preload={lcp}>
+                  <Source
+                    media="(max-width: 671px)"
+                    fetchPriority={lcp ? "high" : "auto"}
+                    src={mobile}
+                    width={412}
+                  />
+                  <Source
+                    media="(min-width: 672px)"
+                    fetchPriority={lcp ? "high" : "auto"}
+                    src={desktop}
+                    width={1440}
+                  />
+                  <img
+                    class="object-cover w-full lg:h-full"
+                    loading={lcp ? "eager" : "lazy"}
+                    src={desktop}
+                    alt={alt}
+                  />
+                </Picture>
+              </a>
             </Slider.Item>
-          ))}
-        </Slider>
-      </div>
+          );
+        })}
+      </Slider>
 
-      <div class="hidden sm:flex items-center justify-center z-10 col-start-1 row-start-2">
-        <Slider.PrevButton
-          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm"
-          disabled={false}
-        >
-          <Icon id="chevron-right" class="rotate-180" />
-        </Slider.PrevButton>
-      </div>
-
-      <div class="hidden sm:flex items-center justify-center z-10 col-start-3 row-start-2">
-        <Slider.NextButton
-          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm"
-          disabled={false}
-        >
-          <Icon id="chevron-right" />
-        </Slider.NextButton>
-      </div>
-
-      <ul
-        class={clx(
-          "col-span-full row-start-4 z-10",
-          "carousel justify-center gap-3",
-        )}
+      <Slider.PrevButton
+        class="hidden lg:flex items-center justify-center z-10 size-20 bg-[#f8fffb80] rounded-full absolute top-1/2 -translate-y-1/2 -left-14 shadow-[0_0_5px_rgba(0,0,0,0.1)]"
+        disabled={false}
       >
-        {images.map((_, index) => (
-          <li class="carousel-item">
-            <Slider.Dot
-              index={index}
-              class={clx(
-                "bg-black opacity-20 h-3 w-3 no-animation rounded-full",
-                "disabled:w-8 disabled:bg-base-100 disabled:opacity-100 transition-[width]",
-              )}
-            >
-            </Slider.Dot>
-          </li>
-        ))}
-      </ul>
+        <Icon id="chevron-right" size={60} class="rotate-180 text-[#0c881e]" />
+      </Slider.PrevButton>
 
-      <Slider.JS rootId={id} interval={interval && interval * 1e3} infinite />
+      <Slider.NextButton
+        class="hidden lg:flex items-center justify-center z-10 size-20 bg-[#f8fffb80] rounded-full absolute top-1/2 -translate-y-1/2 -right-14 shadow-[0_0_5px_rgba(0,0,0,0.1)]"
+        disabled={false}
+      >
+        <Icon id="chevron-right" size={60} class="text-[#0c881e]" />
+      </Slider.NextButton>
+
+      <div class="flex items-center gap-2">
+        {images.map((_, index) => (
+          <Slider.Dot
+            index={index}
+            class="bg-[#d8dcdd] disabled:bg-[#0c881e] transition-colors size-2 rounded-full"
+          />
+        ))}
+      </div>
+
+      <Slider.JS rootId={id} infinite />
     </div>
   );
 }

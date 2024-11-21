@@ -11,20 +11,21 @@
       "__resolveType": "site/sections/Images/Carousel.tsx",
       "images": [
         {
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/5b022a01-ba88-46fe-86ae-93ae644605b7",
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/88b2ad41-be6d-4640-b9fe-c58942362f0f",
-          "alt": "Shoes",
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/7bc09095-6719-41ba-9b3a-8c701fd6e843/MKT_PLACE_1350x500_1e0d62c077.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/298bb4a4-8d98-45db-a05e-4c7b916661d6/MKT_PLACE_640x480_4e0f909a77.png",
+          "alt": "Agrobill a loja parceira do E-agro",
           "action": {
             "title": "Skate into Adventure",
             "subTitle": "Top-quality roller skate shoes for all levels. ",
             "href": "/s?q=shoes&page=0",
             "label": "Grab Yours Now!"
-          }
+          },
+          "href": "/parceiros/agrobill"
         },
         {
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/d26304f4-355b-48d0-b649-e24b9cbf0ded",
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/47a4d85a-1150-4e5d-abc2-5c642445ff12",
-          "alt": "Men",
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/8f7aa810-ecf8-4f4f-a990-94863768078b/EAGRO_Banner_site_1354x508_2_c095546a74.jpg",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/480ec3d5-70c6-4154-9d34-6116cc3f7253/Banner_640x480_cf74dcb7bc.jpg",
+          "alt": "E-agro Marketplace do Bradesco",
           "action": {
             "title": "Discover Fresh Looks",
             "subTitle": "Modern men's clothing and accessories.",
@@ -33,15 +34,34 @@
           }
         },
         {
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/1226ef79-c7e0-403c-b716-b6b9af3f2936",
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/f7ea4cbe-7498-4e64-9205-c741753edfcc",
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/c9422ce0-eb6d-4428-b693-c7ff92dc0be6/Bradesco_Seguros_Grande_e85dcb6aec.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/fe453236-2b28-4140-88d5-48c7fe5378b7/Bradesco_Seguros_pequeno_cbe2f85c9e.png",
           "action": {
             "label": "Shop Now!",
             "href": "/women",
             "title": "Embrace New Trends",
             "subTitle": "Stylish clothes and accessories."
           },
-          "alt": "Woman"
+          "alt": "Bradesco Seguros",
+          "href": "https://www.bradescoseguros.com.br/clientes/seguros-agro?utm_source=referral&utm_medium=banner_loja&utm_campaign=bradesco_seguros"
+        },
+        {
+          "href": "/loja/plantadeira-stara-estrela/p?oferta=3264",
+          "alt": "Stara o parceiro do E-agro do Bradesco",
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/2c0070fd-7fda-4539-a5bf-144ab4e14259/STARA_DISPLAY_2daeb34d6b.jpg",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/8b498d79-2b1d-42d1-b780-fbfdad28f067/STARA_DISPLAY_MOBILE_efcc65a735.jpg"
+        },
+        {
+          "href": "/parceiros/case-ih",
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/dccb6bff-8a71-49be-ae67-a20e360bf520/CASE_IH_DISPLAY_DESKTOP_1354x508_8301c132dd.jpg",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/6e759d4b-1b92-4757-8466-a2b6e57bae30/CASE_IH_DISPLAY_E_BANNER_FULL_MOBILE_640x480_3e3961d1ba.jpg",
+          "alt": "Case IH o Parceiro do E-agro do Bradesco"
+        },
+        {
+          "href": "/parceiros/jacto",
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/7833a979-1567-4c12-942c-d4cc1109b1e2/JACTO_DISPLAY_8f278b4c3c.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/f7627c43-66db-4119-953a-3c2c6c2e3e4f/JACTO_DISPLAY_MOBILE_322a1449f5.png",
+          "alt": "Jacto o parceiro do E-agro do Bradesco"
         }
       ],
       "preload": true
@@ -49,45 +69,48 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/Product/ProductShelf.tsx",
-        "title": "Featured Products",
-        "cta": "/mono",
-        "products": {
-          "__resolveType": "Product List Loader"
-        }
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Category/CategoryGrid.tsx",
-        "title": "Departments",
-        "cta": "/all",
+        "__resolveType": "site/sections/Content/CategorySlider.tsx",
+        "title": "Categorias",
         "items": [
           {
-            "label": "Men",
-            "href": "/men",
-            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/38c33c9f-14a1-4048-973b-dc2a75caf1fa"
+            "title": "Implementos Agrícolas",
+            "href": "/loja/implementos-agricolas",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/3a31fee8-dc20-4e8d-a314-690764d2006e/icon_colheitadeira_791f0325c8.png"
           },
           {
-            "href": "/women",
-            "label": "Women",
-            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/f6bea2b8-b248-4b42-9246-6e924a0acc8b"
+            "href": "/loja/insumos-agricolas",
+            "title": "Insumos Agrícolas",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/a8fc1435-84c2-4efb-83e7-ece254b75108/icon_semente_03_5da78f0cac.png"
           },
           {
-            "href": "/kids",
-            "label": "Kids",
-            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/1b0ecaa2-9a13-4de2-bf17-5196948ed128"
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/900bcf67-fcb9-4636-bbf3-ced587a28670/icon_trator_6c9958ee1a.png",
+            "title": "Máquinas Agrícolas",
+            "href": "/loja/maquinas-agricolas"
           },
           {
-            "href": "/accessories",
-            "label": "Accessories",
-            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/92129655-fe40-4b29-8fdb-e7f71e67a5d1"
+            "href": "/loja/maquinas-agricolas/tratores",
+            "title": "Tratores",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/226ac23a-4896-44c1-9203-99f64b0e9861/cultivator_d3611253b5.png"
           },
           {
-            "href": "/home-and-living",
-            "label": "Home & Living",
-            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/d0433c00-cd26-4638-b519-0cb64b9f82e8"
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/36f1e2a6-820d-47a9-8be2-abc2ddb23d43/cow_3_2_b7100ad5f5.png",
+            "title": "Insumos Pecuários",
+            "href": "/loja/insumos-pecuarios"
+          },
+          {
+            "href": "/loja/maquinas-agricolas/plantadeiras",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/f999a682-b9b5-49ed-acb5-dd3a6100f862/icone_plantadeiras_21e771b610.png",
+            "title": "Plantadeiras"
+          },
+          {
+            "title": "Agricultura Digital",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/0e0fa364-8ae7-4dc0-846a-57f67c1622b8/icon_ag_digital_aae9502958.jpg",
+            "href": "/loja/agricultura-digital"
+          },
+          {
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/b4c9fb2c-9858-404b-a1be-105904a17c89/icone_pulverizador_5515a8434b.png",
+            "href": "/loja/maquinas-agricolas/pulverizadores",
+            "title": "Pulverizadores"
           }
         ]
       }
@@ -105,65 +128,29 @@
         "images": {
           "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/cf96d47f-564f-40da-ad94-7acac5f39327",
           "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/4d5c3212-3f75-4d50-89f3-970815748b43"
-        }
+        },
+        "href": "/simulacao-de-credito",
+        "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/2afe7fe0-2085-4c41-a4b8-26991a60606e/banner_credito_desktop_da00f908ea.jpg",
+        "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/c6510396-8419-4a4e-b557-3577f72e588e/banner_credito_mobile_4_b4354837da.jpg",
+        "alt": "CPR 100% digital"
       }
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/Product/ProductShelfTabbed.tsx",
-        "title": "Hottest Deals",
-        "tabs": [
+        "__resolveType": "site/sections/Images/DoubleBanner.tsx",
+        "banners": [
           {
-            "products": {
-              "__resolveType": "shopify/loaders/ProductList.ts",
-              "props": {
-                "sort": "",
-                "query": "hat and bag",
-                "count": 10
-              },
-              "filters": {
-                "tags": [],
-                "productTypes": [],
-                "productVendors": [],
-                "variantOptions": []
-              }
-            },
-            "title": "Accessories"
+            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/03dfbcf7-6784-43e2-9b7d-fc7b09716634/BOOSTER_MINI_08378116dc.jpg",
+            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/a2a149be-fe9d-4af2-bfec-f6eda084888e/14_06_23_Banner_pequeno_e_agro_mobile_e_desktop_Prancheta_1_ed5750a4f1.jpg",
+            "href": "/parceiros/booster",
+            "alt": "Parceiros"
           },
           {
-            "products": {
-              "__resolveType": "shopify/loaders/ProductList.ts",
-              "props": {
-                "sort": "",
-                "query": "Shirts",
-                "count": 10
-              },
-              "filters": {
-                "tags": [],
-                "productTypes": [],
-                "productVendors": [],
-                "variantOptions": []
-              }
-            },
-            "title": "Fashion"
-          },
-          {
-            "products": {
-              "__resolveType": "shopify/loaders/ProductList.ts",
-              "props": {
-                "sort": "",
-                "query": "stickers",
-                "count": 10
-              },
-              "filters": {
-                "tags": [],
-                "productTypes": [],
-                "productVendors": [],
-                "variantOptions": []
-              }
-            },
-            "title": "Stickers"
+            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/239a6908-6e98-4a87-9991-4480a345f66b/JAN_MINI_db7a8e8582.png",
+            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/957adb43-a68b-4c91-98a3-55e180e66afb/2024_alba_banner_site_material_e_agro_arte_04_665x291px_9d364b6a6a.jpg",
+            "href": "/loja/distribuidor-autopropelido-spartlancer-6-200/p?oferta=4032",
+            "alt": "Spartlancer"
           }
         ]
       }
@@ -171,21 +158,64 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/Newsletter/Newsletter.tsx",
-        "label": "Sign up",
-        "placeholder": "Email address",
-        "empty": {
-          "title": "Get top deals, latest trends, and more.",
-          "description": "Receive our news and promotions in advance. Enjoy and get 10% off your first purchase. For more information click here."
+        "__resolveType": "site/sections/Content/PartnerStoresSlider.tsx",
+        "items": [
+          {
+            "href": "#/",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/1f78c027-f791-4ec2-9a21-c7f19c2fb6b3/Marca_home_Eagro_fb0fc73a7d.png"
+          },
+          {
+            "href": "#/",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/2521c2a9-3c2b-4dff-a32e-51d58d98419e/logo_branca_282x282_73c2beed85.png"
+          },
+          {
+            "href": "#/",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/c14540aa-2c92-4673-b0fe-98b6f15f090c/Irricontrol_282x282_bf2f3e5cf1.png"
+          },
+          {
+            "href": "#/",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/fd27d9be-1ca3-4da8-823d-593840cdefec/logo_4c319bbcb1.png"
+          },
+          {
+            "href": "#/",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/e8b38958-5ac9-4947-a731-a027949ef5ca/bauer_282x282_44c3784552.png"
+          },
+          {
+            "href": "#/",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/1c759c41-ff7f-46fd-98f3-f863b0e24aab/Logo_Sky_Drones_com_slogan_Padrao_cor_24eb42f446.jpg"
+          },
+          {
+            "href": "#/",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/54796fa4-3ae3-4f03-8e1d-1ae56f104950/Logo_X_Mobots_282x282_JPEG_d733e5d259.jpg"
+          }
+        ],
+        "title": "Lojas Parceiras"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Images/Banner.tsx",
+        "title": "Register and Save Big!",
+        "cta": {
+          "label": "Sign Up",
+          "href": "#"
         },
-        "success": {
-          "title": "Thank you for subscribing!",
-          "description": "You’re now signed up to receive the latest news, trends, and exclusive promotions directly to your inbox. Stay tuned!"
+        "description": "<p><span style=\"color: rgb(45, 194, 107);\" data-mce-style=\"color: rgb(45, 194, 107);\">Sign up now to get up to 50% off on your first order. Limited time offer!</span></p>",
+        "images": {
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/cf96d47f-564f-40da-ad94-7acac5f39327",
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/4d5c3212-3f75-4d50-89f3-970815748b43"
         },
-        "failed": {
-          "title": "Oops!. Something went wrong!",
-          "description": "Something went wrong. Please try again. If the problem persists, please contact us."
-        }
+        "href": "/parceiros/xmobots",
+        "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/91d2232c-d20f-44eb-9516-e805ae3b533c/XMOBOTS_banner_e_agro_Desktop_1354_x_338_3_b36cb8717f.jpg",
+        "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/8ef836ab-1034-47de-9f6f-124ab0a894a6/XMOBOTS_banner_e_agro_Mobile_640_x_480_3_4e4beaa738.jpg",
+        "alt": "XMobots"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/BackToTop.tsx"
       }
     },
     {

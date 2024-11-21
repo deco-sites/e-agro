@@ -57,17 +57,23 @@ export default async function loader(
 
   const url = new URL(req.url);
 
+  const filtersParamsRecord = filtersParams?.reduce((acc, { key, value }) => {
+    acc[key] = value;
+    return acc;
+  }, {} as Record<string, string>);
+
+  for (const [key, value] of url.searchParams.entries()) {
+    if (key !== "page") {
+      filtersParamsRecord[key] = value;
+    }
+  }
+
   const page = Number(url.searchParams.get("page") ?? 1);
   url.searchParams.delete("page");
 
   const offset = (page - 1) * count;
   const hasPreviousPage = page > 0;
   const currentPage = page + offset;
-
-  const filtersParamsRecord = filtersParams?.reduce((acc, { key, value }) => {
-    acc[key] = value;
-    return acc;
-  }, {} as Record<string, string>);
 
   const { products, total, properties } = getFilteredProducts(
     productsData,
@@ -184,17 +190,22 @@ const toFilters = (
 
     if (current.name && current.value) {
       const filter = acc[current.name];
-
       const currentURL = new URL(url);
 
-      currentURL.searchParams.set(current.name, current.value);
+      const isSelected = filtersParams[current.name] === current.value;
+
+      if (isSelected) {
+        currentURL.searchParams.delete(current.name);
+      } else {
+        currentURL.searchParams.set(current.name, current.value);
+      }
 
       const filterItem: FilterToggleValue = {
         label: current.value,
         value: current.value,
         quantity: current.quantity,
         url: currentURL.href,
-        selected: filtersParams[current.name] === current.value,
+        selected: isSelected,
       };
 
       filter.values.push(filterItem);
