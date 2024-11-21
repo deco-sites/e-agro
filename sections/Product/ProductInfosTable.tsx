@@ -23,7 +23,9 @@ const ProductInfosTable = ({ page }: Props) => {
         <div class="collapse-content">
           <div class="pt-4 grid grid-cols-1 sm:grid-cols-2">
             {page.product.additionalProperty
-              ?.filter((i) => i.name !== "Categoria")
+              ?.filter((i) =>
+                !["Categoria", "Somente com preço"].includes(i.name ?? "")
+              )
               .map((property, index) => (
                 <div
                   class={clx(
