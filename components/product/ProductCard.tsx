@@ -4,13 +4,11 @@ import Image from "apps/website/components/Image.tsx";
 import { clx } from "../../sdk/clx.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { relative } from "../../sdk/url.ts";
+import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
 import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
-import WishlistButton from "../wishlist/WishlistButton.tsx";
-import AddToCartButton from "./AddToCartButton.tsx";
 import { Ring } from "./ProductVariantSelector.tsx";
-import { useId } from "../../sdk/useId.ts";
 
 interface Props {
   product: Product;
@@ -44,22 +42,18 @@ function ProductCard({
   const title = isVariantOf?.name ?? product.name;
   const [front, back] = images ?? [];
 
-  const { listPrice, price, seller = "1", availability } = useOffer(offers);
+  const { listPrice, price, availability } = useOffer(offers);
   const inStock = availability === "https://schema.org/InStock";
   const possibilities = useVariantPossibilities(hasVariant, product);
   const firstSkuVariations = Object.entries(possibilities)?.[0];
   const variants = Object.entries(firstSkuVariations?.[1] ?? {});
   const relativeUrl = relative(url);
-  const percent =
-    listPrice && price
-      ? Math.round(((listPrice - price) / listPrice) * 100)
-      : 0;
+  const percent = listPrice && price
+    ? Math.round(((listPrice - price) / listPrice) * 100)
+    : 0;
 
   const item = mapProductToAnalyticsItem({ product, price, listPrice, index });
 
-  {
-    /* Add click event to dataLayer */
-  }
   const event = useSendEvent({
     on: "click",
     event: {
@@ -80,7 +74,7 @@ function ProductCard({
       {...event}
       class={clx(
         "card card-compact group text-sm border border-solid border-[#d9dcdd] hover:border-[#0c881e] overflow-hidden rounded-lg ",
-        _class
+        _class,
       )}
     >
       <figure
@@ -95,7 +89,7 @@ function ProductCard({
             "absolute top-0 left-0",
             "grid grid-cols-1 grid-rows-1",
             "w-full",
-            !inStock && "opacity-70"
+            !inStock && "opacity-70",
           )}
         >
           <Image
@@ -107,7 +101,7 @@ function ProductCard({
             class={clx(
               "object-cover",
               " w-full",
-              "col-span-full row-span-full"
+              "col-span-full row-span-full",
             )}
             sizes="(max-width: 640px) 50vw, 20vw"
             preload={preload}
@@ -124,7 +118,7 @@ function ProductCard({
               "object-cover",
               "w-full",
               "col-span-full row-span-full",
-              "transition-opacity opacity-0 lg:group-hover:opacity-100"
+              "transition-opacity opacity-0 lg:group-hover:opacity-100",
             )}
             sizes="(max-width: 640px) 50vw, 20vw"
             loading="lazy"
@@ -138,7 +132,7 @@ function ProductCard({
           <span
             class={clx(
               "text-sm/4 font-normal text-black bg-primary bg-opacity-15 text-center rounded-badge px-2 py-1",
-              (percent < 1 || !inStock) && "opacity-0"
+              (percent < 1 || !inStock) && "opacity-0",
             )}
           >
             {percent} % off
@@ -153,22 +147,24 @@ function ProductCard({
         <span class="font-medium">{title}</span>
 
         <div class="flex-1 flex flex-col justify-end">
-          {inStock ? (
-            <div class="flex gap-2 pt-2">
-              {listPrice && (
-                <span class="line-through font-normal text-gray-400">
-                  {formatPrice(listPrice, offers?.priceCurrency)}
+          {inStock
+            ? (
+              <div class="flex gap-2 pt-2">
+                {listPrice && (
+                  <span class="line-through font-normal text-gray-400">
+                    {formatPrice(listPrice, offers?.priceCurrency)}
+                  </span>
+                )}
+                <span class="font-semibold text-xl text-base-400">
+                  {formatPrice(price, offers?.priceCurrency)}
                 </span>
-              )}
-              <span class="font-semibold text-xl text-base-400">
-                {formatPrice(price, offers?.priceCurrency)}
-              </span>
-            </div>
-          ) : (
-            <div>
-              <span class="font-semibold text-xl">Consulte aqui</span>
-            </div>
-          )}
+              </div>
+            )
+            : (
+              <div>
+                <span class="font-semibold text-xl">Consulte aqui</span>
+              </div>
+            )}
         </div>
       </a>
 

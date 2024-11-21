@@ -34,7 +34,7 @@ export default function CategorySlider({ title, items }: Props) {
     >
       <Title title={title} />
 
-      <div class="w-full lg:px-14">
+      <div class="w-full lg:px-14 mb-4">
         <Slider class="carousel carousel-center w-full gap-5">
           {items.map(({ image, title, href }, index) => (
             <Slider.Item

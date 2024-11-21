@@ -138,6 +138,25 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
+        "__resolveType": "site/sections/Product/ProductShelf.tsx",
+        "title": "Mais Vendidos",
+        "products": {
+          "__resolveType": "site/loaders/productListPage.ts",
+          "limit": 36,
+          "mobileLimit": 16,
+          "filtersParams": [
+            {
+              "key": "Híbrido",
+              "value": "Sim"
+            }
+          ],
+          "count": 5
+        }
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
         "__resolveType": "site/sections/Images/DoubleBanner.tsx",
         "banners": [
           {
@@ -158,7 +177,27 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
+        "__resolveType": "site/sections/Product/ProductShelf.tsx",
+        "title": "Destaques da Semana",
+        "products": {
+          "__resolveType": "site/loaders/productListPage.ts",
+          "limit": 36,
+          "mobileLimit": 16,
+          "filtersParams": [
+            {
+              "key": "Híbrido",
+              "value": "Sim"
+            }
+          ],
+          "count": 5
+        }
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
         "__resolveType": "site/sections/Content/PartnerStoresSlider.tsx",
+        "title": "Lojas Parceiras",
         "items": [
           {
             "href": "#/",
@@ -188,8 +227,7 @@
             "href": "#/",
             "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/54796fa4-3ae3-4f03-8e1d-1ae56f104950/Logo_X_Mobots_282x282_JPEG_d733e5d259.jpg"
           }
-        ],
-        "title": "Lojas Parceiras"
+        ]
       }
     },
     {
@@ -210,6 +248,44 @@
         "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/91d2232c-d20f-44eb-9516-e805ae3b533c/XMOBOTS_banner_e_agro_Desktop_1354_x_338_3_b36cb8717f.jpg",
         "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/8ef836ab-1034-47de-9f6f-124ab0a894a6/XMOBOTS_banner_e_agro_Mobile_640_x_480_3_4e4beaa738.jpg",
         "alt": "XMobots"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/ProductShelf.tsx",
+        "title": "Mais visualizados",
+        "products": {
+          "__resolveType": "site/loaders/productListPage.ts",
+          "limit": 36,
+          "mobileLimit": 16,
+          "filtersParams": [
+            {
+              "key": "Híbrido",
+              "value": "Sim"
+            }
+          ],
+          "count": 5
+        }
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/ProductShelf.tsx",
+        "title": "Recomendados para você",
+        "products": {
+          "__resolveType": "site/loaders/productListPage.ts",
+          "limit": 36,
+          "mobileLimit": 16,
+          "filtersParams": [
+            {
+              "key": "Híbrido",
+              "value": "Sim"
+            }
+          ],
+          "count": 5
+        }
       }
     },
     {

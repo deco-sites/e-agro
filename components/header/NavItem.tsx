@@ -1,5 +1,4 @@
 import type { ImageWidget } from "apps/admin/widgets.ts";
-import Image from "apps/website/components/Image.tsx";
 import { clx } from "../../sdk/clx.ts";
 import Icon from "../ui/Icon.tsx";
 
@@ -32,7 +31,7 @@ interface Item {
   href: string;
 }
 
-function NavItem({ label, href, columns, image, imageHref }: NavItemProps) {
+function NavItem({ label, href, columns }: NavItemProps) {
   const hasColumns = columns && columns.length > 0;
 
   return (
@@ -89,7 +88,8 @@ function NavItem({ label, href, columns, image, imageHref }: NavItemProps) {
             ))}
           </div>
 
-          {image && imageHref && (
+          {
+            /* {image && imageHref && (
             <div class="max-h-[400px] shrink-0">
               <Image
                 src={image}
@@ -100,7 +100,8 @@ function NavItem({ label, href, columns, image, imageHref }: NavItemProps) {
                 class="h-full object-contain"
               />
             </div>
-          )}
+          )} */
+          }
         </div>
       )}
     </li>

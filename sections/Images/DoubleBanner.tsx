@@ -1,5 +1,6 @@
 import type { ImageWidget } from "apps/admin/widgets.ts";
-import { Picture, Source } from "apps/website/components/Picture.tsx";
+import { Picture } from "apps/website/components/Picture.tsx";
+import { SourceWithFitProp } from "../../components/SourceWithFitProp.tsx";
 import Section from "../../components/ui/Section.tsx";
 
 /**
@@ -30,17 +31,19 @@ function DoubleBanner({ banners }: Props) {
         return (
           <Component {...Props} class="flex-1 rounded overflow-hidden">
             <Picture>
-              <Source
+              <SourceWithFitProp
                 media="(max-width: 640px)"
                 src={mobile}
                 width={335}
                 height={572}
+                fit="contain"
               />
-              <Source
+              <SourceWithFitProp
                 media="(min-width: 640px)"
                 src={desktop}
                 width={1320}
                 height={480}
+                fit="contain"
               />
               <img src={desktop} alt={alt} class="w-full h-full object-cover" />
             </Picture>

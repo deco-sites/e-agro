@@ -38,7 +38,7 @@ function NotFound() {
 const useUrlRebased = (
   overrides: string | undefined,
   base: string,
-  clearFilters?: boolean
+  clearFilters?: boolean,
 ) => {
   let url: string | undefined = undefined;
 
@@ -84,7 +84,7 @@ function PageResult(props: SectionProps<typeof loader>) {
       <div
         class={clx(
           "pb-2 sm:pb-10",
-          (!prevPageUrl || partial === "hideLess") && "hidden"
+          (!prevPageUrl || partial === "hideLess") && "hidden",
         )}
       >
         <a
@@ -104,7 +104,7 @@ function PageResult(props: SectionProps<typeof loader>) {
           "grid items-center",
           "grid-cols-2 gap-2",
           "sm:grid-cols-4 sm:gap-4",
-          "w-full"
+          "w-full",
         )}
       >
         {products?.map((product, index) => (
@@ -119,46 +119,48 @@ function PageResult(props: SectionProps<typeof loader>) {
       </div>
 
       <div class={clx("pt-2 sm:pt-10 w-full", "")}>
-        {infinite ? (
-          <div class="flex justify-center [&_section]:contents">
-            <a
-              rel="next"
-              class={clx(
-                "btn btn-ghost",
-                (!nextPageUrl || partial === "hideMore") && "hidden"
-              )}
-              hx-swap="outerHTML show:parent:top"
-              hx-get={partialNext}
-            >
-              <span class="inline [.htmx-request_&]:hidden">Show More</span>
-              <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
-            </a>
-          </div>
-        ) : (
-          <div class={clx("join", infinite && "hidden")}>
-            <a
-              rel="prev"
-              aria-label="previous page link"
-              href={prevPageUrl ?? "#"}
-              disabled={!prevPageUrl}
-              class="btn btn-ghost join-item"
-            >
-              <Icon id="chevron-right" class="rotate-180" />
-            </a>
-            <span class="btn btn-ghost join-item">
-              Page {zeroIndexedOffsetPage + 1}
-            </span>
-            <a
-              rel="next"
-              aria-label="next page link"
-              href={nextPageUrl ?? "#"}
-              disabled={!nextPageUrl}
-              class="btn btn-ghost join-item"
-            >
-              <Icon id="chevron-right" />
-            </a>
-          </div>
-        )}
+        {infinite
+          ? (
+            <div class="flex justify-center [&_section]:contents">
+              <a
+                rel="next"
+                class={clx(
+                  "btn btn-ghost",
+                  (!nextPageUrl || partial === "hideMore") && "hidden",
+                )}
+                hx-swap="outerHTML show:parent:top"
+                hx-get={partialNext}
+              >
+                <span class="inline [.htmx-request_&]:hidden">Show More</span>
+                <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
+              </a>
+            </div>
+          )
+          : (
+            <div class={clx("join", infinite && "hidden")}>
+              <a
+                rel="prev"
+                aria-label="previous page link"
+                href={prevPageUrl ?? "#"}
+                disabled={!prevPageUrl}
+                class="btn btn-ghost join-item"
+              >
+                <Icon id="chevron-right" class="rotate-180" />
+              </a>
+              <span class="btn btn-ghost join-item">
+                Page {zeroIndexedOffsetPage + 1}
+              </span>
+              <a
+                rel="next"
+                aria-label="next page link"
+                href={nextPageUrl ?? "#"}
+                disabled={!nextPageUrl}
+                class="btn btn-ghost join-item"
+              >
+                <Icon id="chevron-right" />
+              </a>
+            </div>
+          )}
       </div>
     </div>
   );
@@ -231,7 +233,7 @@ function Result(props: SectionProps<typeof loader>) {
         <div
           class={clx(
             "flex items-center h-8 rounded-2xl px-[14px] py-[6px]",
-            " bg-[#f7f7f7] cursor-pointer hover:bg-[#e5e6e7] transition-colors duration-300"
+            " bg-[#f7f7f7] cursor-pointer hover:bg-[#e5e6e7] transition-colors duration-300",
           )}
         >
           <p class="text-base font-semibold text-black">{filter}</p>
@@ -243,84 +245,86 @@ function Result(props: SectionProps<typeof loader>) {
   return (
     <>
       <div id={container} {...viewItemListEvent} class="w-full">
-        {partial ? (
-          <PageResult {...props} />
-        ) : (
-          <div class="container lg:max-w-[1248px] flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-6 px-5 sm:px-0">
-            <div class="w-full flex flex-col pb-7 border-b border-[#f7f7f7]">
-              <Breadcrumb
-                itemListElement={breadcrumb?.itemListElement}
-                isProductListingPage={!!page}
-              />
-              <div class="w-full mt-4 flex gap-6 items-center">
-                <p class="text-sm font-normal text-[#6d6e71]">
-                  Sugestões de filtros
-                </p>
-                <FiltersSuggestions />
-              </div>
-            </div>
-
-            {device === "mobile" && (
-              <Drawer
-                id={controls}
-                aside={
-                  <div class="bg-base-100 flex flex-col h-full divide-y overflow-y-hidden">
-                    <div class="flex justify-between items-center">
-                      <h1 class="px-4 py-3">
-                        <span class="font-medium text-2xl">Filters</span>
-                      </h1>
-                      <label class="btn btn-ghost" for={controls}>
-                        <Icon id="close" />
-                      </label>
-                    </div>
-                    <div class="flex-grow overflow-auto">
-                      <Filters
-                        filters={filters}
-                        qtdResults={products.length}
-                        clearFiltersUrl={clearFiltersUrl}
-                      />
-                    </div>
-                  </div>
-                }
-              >
-                <div class="flex sm:hidden justify-between items-end">
-                  <div class="flex flex-col">
-                    {results}
-                    {sortBy}
-                  </div>
-
-                  <label class="btn btn-ghost" for={controls}>
-                    Filters
-                  </label>
+        {partial
+          ? <PageResult {...props} />
+          : (
+            <div class="container lg:max-w-[1248px] flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-6 px-5 sm:px-0">
+              <div class="w-full flex flex-col pb-7 border-b border-[#f7f7f7]">
+                <Breadcrumb
+                  itemListElement={breadcrumb?.itemListElement}
+                  isProductListingPage={!!page}
+                />
+                <div class="w-full mt-4 flex gap-6 items-center">
+                  <p class="text-sm font-normal text-[#6d6e71]">
+                    Sugestões de filtros
+                  </p>
+                  <FiltersSuggestions />
                 </div>
-              </Drawer>
-            )}
+              </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-[303px_1fr] gap-[18px]">
-              {device === "desktop" && (
-                <aside class="place-self-start flex flex-col gap-9">
-                  <Filters
-                    filters={filters}
-                    qtdResults={products.length}
-                    clearFiltersUrl={clearFiltersUrl}
-                  />
-                </aside>
+              {device === "mobile" && (
+                <Drawer
+                  id={controls}
+                  aside={
+                    <div class="bg-base-100 flex flex-col h-full divide-y overflow-y-hidden">
+                      <div class="flex justify-between items-center">
+                        <h1 class="px-4 py-3">
+                          <span class="font-medium text-2xl">Filters</span>
+                        </h1>
+                        <label class="btn btn-ghost" for={controls}>
+                          <Icon id="close" />
+                        </label>
+                      </div>
+                      <div class="flex-grow overflow-auto">
+                        <Filters
+                          filters={filters}
+                          qtdResults={products.length}
+                          clearFiltersUrl={clearFiltersUrl}
+                        />
+                      </div>
+                    </div>
+                  }
+                >
+                  <div class="flex sm:hidden justify-between items-end">
+                    <div class="flex flex-col">
+                      {results}
+                      {sortBy}
+                    </div>
+
+                    <label class="btn btn-ghost" for={controls}>
+                      Filters
+                    </label>
+                  </div>
+                </Drawer>
               )}
 
-              <div class="flex flex-col gap-9">
-                {/* {device === "desktop" && (
+              <div class="grid grid-cols-1 sm:grid-cols-[303px_1fr] gap-[18px]">
+                {device === "desktop" && (
+                  <aside class="place-self-start flex flex-col gap-9">
+                    <Filters
+                      filters={filters}
+                      qtdResults={products.length}
+                      clearFiltersUrl={clearFiltersUrl}
+                    />
+                  </aside>
+                )}
+
+                <div class="flex flex-col gap-9">
+                  {
+                    /* {device === "desktop" && (
                     <div class="flex justify-between items-center">
                       {results}
                       <div>
                         {sortBy}
                       </div>
                     </div>
-                  )} */}
-                <PageResult {...props} />
+                  )} */
+                  }
+                  <PageResult {...props} />
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
       </div>
 
       <script
@@ -329,7 +333,7 @@ function Result(props: SectionProps<typeof loader>) {
           __html: useScript(
             setPageQuerystring,
             `${pageInfo.currentPage}`,
-            container
+            container,
           ),
         }}
       />
