@@ -33,7 +33,7 @@ const loader = async (
           name: product.name,
           position: categories.length - 1,
         },
-      ] ?? [],
+      ],
     },
     product,
     seo: {
