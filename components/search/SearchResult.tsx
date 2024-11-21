@@ -102,8 +102,8 @@ function PageResult(props: SectionProps<typeof loader>) {
         data-product-list
         class={clx(
           "grid items-center",
-          "grid-cols-2 gap-2",
-          "sm:grid-cols-4 sm:gap-4",
+          "grid-cols-1 gap-6",
+          "lg:grid-cols-4 lg:gap-4",
           "w-full",
         )}
       >
@@ -113,7 +113,7 @@ function PageResult(props: SectionProps<typeof loader>) {
             product={product}
             preload={index === 0}
             index={offset + index}
-            class="h-[398px] min-w-[160px] max-w-[300px]"
+            class="max-lg:flex-row h-[154px] lg:h-[398px] lg:min-w-[160px] lg:max-w-[300px]"
           />
         ))}
       </div>
@@ -298,7 +298,7 @@ function Result(props: SectionProps<typeof loader>) {
                 </Drawer>
               )}
 
-              <div class="grid grid-cols-1 sm:grid-cols-[303px_1fr] gap-[18px]">
+              <div class="grid grid-cols-1 lg:grid-cols-[303px_1fr] gap-[18px]">
                 {device === "desktop" && (
                   <aside class="place-self-start flex flex-col gap-9 w-full">
                     <Filters
