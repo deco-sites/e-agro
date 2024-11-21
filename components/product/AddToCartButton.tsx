@@ -23,10 +23,20 @@ const onClick = () => {
 
 const onChange = () => {
   const input = event!.currentTarget as HTMLInputElement;
-  const productID = input!
-    .closest("div[data-cart-item]")!
-    .getAttribute("data-item-id")!;
+  const wrapper = input!.closest("div[data-cart-item]")!;
+  const productID = wrapper.getAttribute("data-item-id")!;
+  const buyNow = wrapper.querySelector("[data-buy-full-price]");
+
+  const fp = new Intl.NumberFormat("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
+
   const quantity = Number(input.value);
+  buyNow.setAttribute(
+    "data-value",
+    fp.format(Number(buyNow.getAttribute("data-unit-price") ?? 0) * quantity)
+  );
   if (!input.validity.valid) {
     return;
   }
@@ -140,10 +150,16 @@ function AddToCartButton(props: Props) {
 
       <button
         disabled
-        class={clx("flex-grow peer-checked:flex", "btn btn-primary")}
+        data-buy-full-price
+        data-unit-price={product.offers?.highPrice}
+        data-value={formatPrice(product.offers?.highPrice, "BRL")}
+        class={clx(
+          "flex-grow peer-checked:flex",
+          "btn btn-primary after:content-[attr(data-value)]"
+        )}
         hx-on:click={useScript(onClick)}
       >
-        Comprar - {formatPrice(product.offers?.highPrice, "BRL")}
+        Comprar -
       </button>
 
       <script
