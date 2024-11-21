@@ -35,8 +35,20 @@ function NotFound() {
     </div>
   );
 }
-const useUrlRebased = (overrides: string | undefined, base: string) => {
+const useUrlRebased = (
+  overrides: string | undefined,
+  base: string,
+  clearFilters?: boolean,
+) => {
   let url: string | undefined = undefined;
+
+  if (clearFilters) {
+    // Mantém apenas o pathname da URL base
+    const final = new URL(base);
+    url = final.pathname;
+    return url;
+  }
+
   if (overrides) {
     const temp = new URL(overrides, base);
     const final = new URL(base);
@@ -46,6 +58,7 @@ const useUrlRebased = (overrides: string | undefined, base: string) => {
     }
     url = final.href;
   }
+
   return url;
 };
 function PageResult(props: SectionProps<typeof loader>) {
@@ -180,6 +193,7 @@ function Result(props: SectionProps<typeof loader>) {
   const controls = useId();
   const device = useDevice();
   const { startingPage = 0, url, partial } = props;
+  const clearFiltersUrl = useUrlRebased(undefined, url, true);
   const page = props.page!;
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
   const perPage = pageInfo?.recordPerPage || products.length;
@@ -262,7 +276,11 @@ function Result(props: SectionProps<typeof loader>) {
                         </label>
                       </div>
                       <div class="flex-grow overflow-auto">
-                        <Filters filters={filters} />
+                        <Filters
+                          filters={filters}
+                          qtdResults={products.length}
+                          clearFiltersUrl={clearFiltersUrl}
+                        />
                       </div>
                     </div>
                   }
@@ -280,14 +298,14 @@ function Result(props: SectionProps<typeof loader>) {
                 </Drawer>
               )}
 
-              <div class="grid grid-cols-1 sm:grid-cols-[303px_1fr]">
+              <div class="grid grid-cols-1 sm:grid-cols-[303px_1fr] gap-[18px]">
                 {device === "desktop" && (
                   <aside class="place-self-start flex flex-col gap-9">
-                    <span class="text-base font-semibold h-12 flex items-center">
-                      Filters
-                    </span>
-
-                    <Filters filters={filters} />
+                    <Filters
+                      filters={filters}
+                      qtdResults={products.length}
+                      clearFiltersUrl={clearFiltersUrl}
+                    />
                   </aside>
                 )}
 

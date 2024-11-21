@@ -27,7 +27,9 @@ export type AvailableIcons =
   | "shopping_bag"
   | "trash"
   | "user"
-  | "verified-seal";
+  | "verified-seal"
+  | "ChevronDown"
+  | "Trash";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

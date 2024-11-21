@@ -3597,6 +3597,32 @@ details.collapse summary::-webkit-details-marker {
     border: none;
     height: auto;
   }
+.custom-accordion {
+    width: 100%;
+  }
+.custom-accordion-title {
+    width: 100%;
+    cursor: pointer;
+  }
+.custom-accordion-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 250ms grid-template-rows ease;
+  }
+.custom-accordion .custom-accordion-input:checked ~ .custom-accordion-body {
+    grid-template-rows: 1fr;
+  }
+.custom-accordion
+    .custom-accordion-input:checked
+    ~ .custom-accordion-title
+    .custom-accordion-indicator {
+    transform: rotate(180deg);
+    transform-origin: center;
+    transition: transform 250ms ease;
+  }
+.custom-accordion-body > .custom-accordion-wrapper {
+    overflow: hidden;
+  }
 .sr-only {
   position: absolute;
   width: 1px;
@@ -3848,6 +3874,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .mt-8 {
   margin-top: 2rem;
+}
+.mt-\[18px\] {
+  margin-top: 18px;
 }
 .mt-\[5px\] {
   margin-top: 5px;
@@ -4349,6 +4378,9 @@ details.collapse summary::-webkit-details-marker {
 .gap-\[16px\] {
   gap: 16px;
 }
+.gap-\[18px\] {
+  gap: 18px;
+}
 .gap-\[2px\] {
   gap: 2px;
 }
@@ -4567,7 +4599,15 @@ details.collapse summary::-webkit-details-marker {
   --tw-border-opacity: 1;
   border-color: rgb(217 220 221 / var(--tw-border-opacity));
 }
+.border-\[\#f0f0f0\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(240 240 240 / var(--tw-border-opacity));
+}
 .border-\[\#f7f7f7\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(247 247 247 / var(--tw-border-opacity));
+}
+.border-base-100 {
   --tw-border-opacity: 1;
   border-color: rgb(247 247 247 / var(--tw-border-opacity));
 }
@@ -4820,6 +4860,14 @@ details.collapse summary::-webkit-details-marker {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.py-\[5px\] {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .py-\[6px\] {
   padding-top: 6px;
@@ -5509,8 +5557,14 @@ details.collapse summary::-webkit-details-marker {
 .first\:pl-5:first-child {
   padding-left: 1.25rem;
 }
+.first\:pt-0:first-child {
+  padding-top: 0px;
+}
 .last\:mr-4:last-child {
   margin-right: 1rem;
+}
+.last\:border-b-0:last-child {
+  border-bottom-width: 0px;
 }
 .last\:pr-5:last-child {
   padding-right: 1.25rem;
@@ -5540,6 +5594,10 @@ details.collapse summary::-webkit-details-marker {
 .hover\:bg-\[\#075512\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(7 85 18 / var(--tw-bg-opacity));
+}
+.hover\:bg-\[\#0c881e\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(12 136 30 / var(--tw-bg-opacity));
 }
 .hover\:bg-\[\#e5e6e7\]:hover {
   --tw-bg-opacity: 1;
