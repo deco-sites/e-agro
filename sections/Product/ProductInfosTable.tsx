@@ -22,20 +22,22 @@ const ProductInfosTable = ({ page }: Props) => {
         </div>
         <div class="collapse-content">
           <div class="pt-4 grid grid-cols-1 sm:grid-cols-2">
-            {page.product.additionalProperty?.map((property, index) => (
-              <div
-                class={clx(
-                  "p-4 grid grid-cols-2 ",
-                  Math.floor(index / 2) % 2 === 0 ? "sm:!bg-[#f7f7f7]" : "",
-                  (index + 1) % 2 !== 0
-                    ? "rounded-s-lg bg-[#f7f7f7] sm:bg-white"
-                    : "rounded-e-lg",
-                )}
-              >
-                <span>{property.name}</span>
-                <span class="font-semibold">{property.value}</span>
-              </div>
-            ))}
+            {page.product.additionalProperty
+              ?.filter((i) => i.name !== "Categoria")
+              .map((property, index) => (
+                <div
+                  class={clx(
+                    "p-4 grid grid-cols-2 ",
+                    Math.floor(index / 2) % 2 === 0 ? "sm:!bg-[#f7f7f7]" : "",
+                    (index + 1) % 2 !== 0
+                      ? "rounded-s-lg bg-[#f7f7f7] sm:bg-white"
+                      : "rounded-e-lg"
+                  )}
+                >
+                  <span>{property.name}</span>
+                  <span class="font-semibold">{property.value}</span>
+                </div>
+              ))}
           </div>
         </div>
       </div>

@@ -26,13 +26,15 @@ function Breadcrumb({
                 ? { ...currentItem, name: `Resultados de busca` }
                 : currentItem
             )
-            .map(({ name, item }) => (
+            .map(({ name, item }, index, array) => (
               <li>
                 <a
                   href={relative(item)}
                   class={clx(
-                    item === "/" && "text-[#0c881e] hover:text-[#075512]",
-                    "no-underline hover:no-underline",
+                    index + 1 !== array.length
+                      ? " text-[#0c881e] hover:text-[#075512]"
+                      : "text-black",
+                    "no-underline hover:no-underline"
                   )}
                   style={{
                     textDecoration: "none",
@@ -47,14 +49,14 @@ function Breadcrumb({
       {isProductListingPage && lastItem && (
         <div class="w-full">
           <a href={lastItem.item} class="text-[32px] leading-10 font-semibold">
-            {isSearchResultPage
-              ? (
-                <div>
-                  Resultados da busca por: "
-                  <h1 class="inline">{lastItem.name}</h1>"
-                </div>
-              )
-              : <h1>{lastItem.name}</h1>}
+            {isSearchResultPage ? (
+              <div>
+                Resultados da busca por: "
+                <h1 class="inline">{lastItem.name}</h1>"
+              </div>
+            ) : (
+              <h1>{lastItem.name}</h1>
+            )}
           </a>
         </div>
       )}
