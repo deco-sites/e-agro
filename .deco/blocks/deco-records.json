@@ -1,0 +1,9 @@
+{
+  "__resolveType": "site/apps/deco/records.ts",
+  "url": "libsql://e-agro-decocx.turso.io",
+  "authToken": {
+    "__resolveType": "website/loaders/secret.ts",
+    "name": "DATABASE_AUTH_TOKEN",
+    "encrypted": "5ec165dc903c40055ab1106d7d04a5b7ee25843cf6addae27ba3724714901a8a50c0ac777c2accb866a9bd388589230f276c2af78e8956734ac65fb7c9c5777680df91c2327e129bc81b5e5b4df7312bf9a6f3fb32e2e9f5997c0fc8d6387ebff801c1031b66090cc7d6488e113124ae01df0c342b66a03f707400a2ccff8f55e658a3baf1a992827ffb2aebd3707fe1173695175e693164197a59d2c12109be24b49fd8a932da051ff39a14543e25af95232abd1580cb0a4e38990161eb157579b4b80c2b22f25433ba75dc39f0efc467338c252c54478ab8a8f0f6b612171c"
+  }
+}

@@ -87,3 +87,4 @@ deno.*.tmp
 
 # TAilwind file
 static/tailwind.css
+sqlite.db
