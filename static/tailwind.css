@@ -3847,9 +3847,6 @@ details.collapse summary::-webkit-details-marker {
 .mr-3 {
   margin-right: 0.75rem;
 }
-.mr-4 {
-  margin-right: 1rem;
-}
 .mr-auto {
   margin-right: auto;
 }
@@ -5651,6 +5648,10 @@ details.collapse summary::-webkit-details-marker {
   .sm\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .sm\:mr-4 {
+    margin-right: 1rem;
   }
 
   .sm\:mt-10 {

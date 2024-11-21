@@ -112,7 +112,7 @@ function AddToCartButton(props: Props) {
   return (
     <div
       id={id}
-      class="flex flex-col gap-2 sm:flex-row"
+      class="flex flex-col gap-2 sm:flex-row w-full"
       data-item-id={product.productID}
       data-cart-item={encodeURIComponent(
         JSON.stringify({ item, platformProps })
@@ -121,7 +121,7 @@ function AddToCartButton(props: Props) {
       <input type="checkbox" class="hidden peer" />
 
       {/* Quantity Input */}
-      <div class="flex-grow peer-checked:flex mr-4">
+      <div class="flex-grow peer-checked:flex sm:mr-4">
         <QuantitySelector
           disabled
           min={1}
@@ -132,7 +132,7 @@ function AddToCartButton(props: Props) {
 
       <button
         disabled
-        class={clx("flex-grow peer-checked:flex mr-4", _class?.toString())}
+        class={clx("flex-grow peer-checked:flex sm:mr-4", _class?.toString())}
         hx-on:click={useScript(onClick)}
       >
         Adicionar ao Carrinho
