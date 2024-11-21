@@ -16,7 +16,7 @@ const onClick = () => {
   const button = event?.currentTarget as HTMLButtonElement | null;
   const container = button!.closest<HTMLDivElement>("div[data-cart-item]")!;
   const { item, platformProps } = JSON.parse(
-    decodeURIComponent(container.getAttribute("data-cart-item")!),
+    decodeURIComponent(container.getAttribute("data-cart-item")!)
   );
   window.STOREFRONT.CART.addToCart(item, platformProps);
 };
@@ -37,13 +37,13 @@ const onLoad = (id: string) => {
   window.STOREFRONT.CART.subscribe((sdk) => {
     const container = document.getElementById(id);
     const checkbox = container?.querySelector<HTMLInputElement>(
-      'input[type="checkbox"]',
+      'input[type="checkbox"]'
     );
     const input = container?.querySelector<HTMLInputElement>(
-      'input[type="number"]',
+      'input[type="number"]'
     );
     const itemID = container?.getAttribute("data-item-id")!;
-    const quantity = sdk.getQuantity(itemID) || 0;
+    const quantity = sdk.getQuantity(itemID) || 1;
     if (!input || !checkbox) {
       return;
     }
@@ -76,7 +76,7 @@ const useAddToCart = ({ product, seller }: Props) => {
       quantity: 1,
       itemId: productID,
       attributes: Object.fromEntries(
-        additionalProperty.map(({ name, value }) => [name, value]),
+        additionalProperty.map(({ name, value }) => [name, value])
       ),
     };
   }
@@ -92,7 +92,7 @@ const useAddToCart = ({ product, seller }: Props) => {
       itemId: Number(productGroupID),
       add_to_cart_enhanced: "1",
       attributes: Object.fromEntries(
-        additionalProperty.map(({ name, value }) => [name, value]),
+        additionalProperty.map(({ name, value }) => [name, value])
       ),
     };
   }
@@ -115,16 +115,16 @@ function AddToCartButton(props: Props) {
       class="flex flex-col gap-2 sm:flex-row"
       data-item-id={product.productID}
       data-cart-item={encodeURIComponent(
-        JSON.stringify({ item, platformProps }),
+        JSON.stringify({ item, platformProps })
       )}
     >
       <input type="checkbox" class="hidden peer" />
 
       {/* Quantity Input */}
-      <div class="flex-grow hidden peer-checked:flex mr-4">
+      <div class="flex-grow peer-checked:flex mr-4">
         <QuantitySelector
           disabled
-          min={0}
+          min={1}
           max={100}
           hx-on:change={useScript(onChange)}
         />
