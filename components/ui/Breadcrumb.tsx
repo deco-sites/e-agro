@@ -48,7 +48,10 @@ function Breadcrumb({
       </div>
       {isProductListingPage && lastItem && (
         <div class="w-full">
-          <a href={lastItem.item} class="text-[32px] leading-10 font-semibold">
+          <a
+            href={lastItem.item}
+            class="text-[27px] text-center lg:text-left lg:text-[32px] lg:leading-10 font-semibold"
+          >
             {isSearchResultPage
               ? (
                 <div>
