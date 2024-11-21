@@ -9,7 +9,7 @@ import { useOffer } from "../../sdk/useOffer.ts";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
 import Breadcrumb from "../ui/Breadcrumb.tsx";
 import Drawer from "../ui/Drawer.tsx";
-import Sort from "./Sort.tsx";
+// import Sort from "./Sort.tsx";
 import { useDevice, useScript, useSection } from "@deco/deco/hooks";
 import { type SectionProps } from "@deco/deco";
 export interface Layout {
@@ -195,7 +195,7 @@ function Result(props: SectionProps<typeof loader>) {
   const { startingPage = 0, url, partial } = props;
   const clearFiltersUrl = useUrlRebased(undefined, url, true);
   const page = props.page!;
-  const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
+  const { products, filters, breadcrumb, pageInfo } = page;
   const perPage = pageInfo?.recordPerPage || products.length;
   const zeroIndexedOffsetPage = pageInfo.currentPage - startingPage;
   const offset = zeroIndexedOffsetPage * perPage;
@@ -218,14 +218,14 @@ function Result(props: SectionProps<typeof loader>) {
       },
     },
   });
-  const results = (
-    <span class="text-sm font-normal">
-      {page.pageInfo.recordPerPage} of {page.pageInfo.records} results
-    </span>
-  );
-  const sortBy = sortOptions.length > 0 && (
-    <Sort sortOptions={sortOptions} url={url} />
-  );
+  // const results = (
+  //   <span class="text-sm font-normal">
+  //     {page.pageInfo.recordPerPage} of {page.pageInfo.records} results
+  //   </span>
+  // );
+  // const sortBy = sortOptions.length > 0 && (
+  //   <Sort sortOptions={sortOptions} url={url} />
+  // );
 
   const FiltersSuggestions = () => (
     <div class="flex gap-4">
@@ -248,19 +248,46 @@ function Result(props: SectionProps<typeof loader>) {
         {partial
           ? <PageResult {...props} />
           : (
-            <div class="container lg:max-w-[1248px] flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-6 px-5 sm:px-0">
-              <div class="w-full flex flex-col pb-7 border-b border-[#f7f7f7]">
+            <div class="container lg:max-w-[1248px] flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-6 px-5 lg:px-0">
+              <div class="w-full flex flex-col lg:pb-7 lg:border-b border-[#f7f7f7]">
                 <Breadcrumb
                   itemListElement={breadcrumb?.itemListElement}
                   isProductListingPage={!!page}
                 />
-                <div class="w-full mt-4 flex gap-6 items-center">
+                <div class="w-full mt-4 gap-6 items-center hidden sm:flex">
                   <p class="text-sm font-normal text-[#6d6e71]">
                     Sugestões de filtros
                   </p>
                   <FiltersSuggestions />
                 </div>
               </div>
+
+              <div class="flex sm:hidden items-center gap-4 sticky top-0 bg-white z-20">
+                {
+                  /* <div class="flex flex-col">
+                      {results}
+                      {sortBy}
+                    </div> */
+                }
+
+                <label
+                  class={clx(
+                    "flex items-center rounded-full gap-2 py-1 pl-1 pr-5",
+                    "transition-colors duration-300",
+                    "bg-[#0c881e] text-white",
+                    "text-sm",
+                  )}
+                  for={controls}
+                >
+                  <div class="rounded-full flex items-center justify-center bg-white size-[30px]">
+                    <Icon id="Filter" width={16} height={16} />
+                  </div>
+                  Filtros
+                </label>
+                <FiltersSuggestions />
+              </div>
+
+              <div class="border-b border-[#f7f7f7] w-full lg:hidden" />
 
               {device === "mobile" && (
                 <Drawer
@@ -285,16 +312,6 @@ function Result(props: SectionProps<typeof loader>) {
                     </div>
                   }
                 >
-                  <div class="flex sm:hidden justify-between items-end">
-                    <div class="flex flex-col">
-                      {results}
-                      {sortBy}
-                    </div>
-
-                    <label class="btn btn-ghost" for={controls}>
-                      Filters
-                    </label>
-                  </div>
                 </Drawer>
               )}
 

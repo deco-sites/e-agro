@@ -34,7 +34,8 @@ export type AvailableIcons =
   | "circles"
   | "quem-somos"
   | "money"
-  | "MoneyCurrency";
+  | "MoneyCurrency"
+  | "Filter";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**
