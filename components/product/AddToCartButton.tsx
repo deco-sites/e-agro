@@ -23,10 +23,22 @@ const onClick = () => {
 
 const onChange = () => {
   const input = event!.currentTarget as HTMLInputElement;
-  const productID = input!
-    .closest("div[data-cart-item]")!
-    .getAttribute("data-item-id")!;
+  const wrapper = input!.closest("div[data-cart-item]")!;
+  const productID = wrapper.getAttribute("data-item-id")!;
+  const buyNow = wrapper.querySelector(
+    "[data-buy-full-price]",
+  ) as HTMLButtonElement;
+
+  const fp = new Intl.NumberFormat("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
+
   const quantity = Number(input.value);
+  buyNow.setAttribute(
+    "data-value",
+    fp.format(Number(buyNow.getAttribute("data-unit-price") ?? 0) * quantity),
+  );
   if (!input.validity.valid) {
     return;
   }
@@ -43,7 +55,7 @@ const onLoad = (id: string) => {
       'input[type="number"]',
     );
     const itemID = container?.getAttribute("data-item-id")!;
-    const quantity = sdk.getQuantity(itemID) || 0;
+    const quantity = sdk.getQuantity(itemID) || 1;
     if (!input || !checkbox) {
       return;
     }
@@ -112,7 +124,7 @@ function AddToCartButton(props: Props) {
   return (
     <div
       id={id}
-      class="flex"
+      class="flex flex-col gap-2 sm:flex-row w-full"
       data-item-id={product.productID}
       data-cart-item={encodeURIComponent(
         JSON.stringify({ item, platformProps }),
@@ -121,10 +133,10 @@ function AddToCartButton(props: Props) {
       <input type="checkbox" class="hidden peer" />
 
       {/* Quantity Input */}
-      <div class="flex-grow hidden peer-checked:flex mr-4">
+      <div class="flex-grow peer-checked:flex sm:mr-4">
         <QuantitySelector
           disabled
-          min={0}
+          min={1}
           max={100}
           hx-on:change={useScript(onChange)}
         />
@@ -132,7 +144,7 @@ function AddToCartButton(props: Props) {
 
       <button
         disabled
-        class={clx("flex-grow peer-checked:flex mr-4", _class?.toString())}
+        class={clx("flex-grow peer-checked:flex sm:mr-4", _class?.toString())}
         hx-on:click={useScript(onClick)}
       >
         Adicionar ao Carrinho
@@ -140,10 +152,16 @@ function AddToCartButton(props: Props) {
 
       <button
         disabled
-        class={clx("flex-grow peer-checked:flex", "btn btn-primary")}
+        data-buy-full-price
+        data-unit-price={product.offers?.highPrice}
+        data-value={formatPrice(product.offers?.highPrice, "BRL")}
+        class={clx(
+          "flex-grow peer-checked:flex",
+          "btn btn-primary after:content-[attr(data-value)]",
+        )}
         hx-on:click={useScript(onClick)}
       >
-        Comprar - {formatPrice(product.offers?.highPrice, "BRL")}
+        Comprar -
       </button>
 
       <script

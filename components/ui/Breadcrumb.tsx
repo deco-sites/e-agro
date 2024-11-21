@@ -26,12 +26,14 @@ function Breadcrumb({
                 ? { ...currentItem, name: `Resultados de busca` }
                 : currentItem
             )
-            .map(({ name, item }) => (
+            .map(({ name, item }, index, array) => (
               <li>
                 <a
                   href={relative(item)}
                   class={clx(
-                    item === "/" && "text-[#0c881e] hover:text-[#075512]",
+                    index + 1 !== array.length
+                      ? " text-[#0c881e] hover:text-[#075512]"
+                      : "text-black",
                     "no-underline hover:no-underline",
                   )}
                   style={{

@@ -17,20 +17,20 @@ const onLoad = (id: string) =>
     }
     counter.innerText = count > 9 ? "9+" : count.toString();
   });
+
 function Bag() {
   const id = useId();
+
   return (
     <>
-      <label class="indicator" for={MINICART_DRAWER_ID} aria-label="open cart">
-        <span
-          id={id}
-          class="hidden indicator-item badge badge-primary badge-sm font-thin"
-        />
-
-        <span class="btn btn-square btn-sm btn-ghost no-animation">
-          <Icon id="shopping_bag" />
-        </span>
+      <label
+        class="indicator items-center gap-2 text-black text-sm h-full cursor-pointer"
+        for={MINICART_DRAWER_ID}
+      >
+        <Icon id="cart" size={18} class="text-[#0c881e]" />
+        Carrinho
       </label>
+
       <script
         type="module"
         dangerouslySetInnerHTML={{ __html: useScript(onLoad, id) }}
