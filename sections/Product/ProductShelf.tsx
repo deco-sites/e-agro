@@ -4,7 +4,9 @@ import ProductSlider from "../../components/product/ProductSlider.tsx";
 import Section from "../../components/ui/Section.tsx";
 
 export interface Props {
+  /** @title Título */
   title: string;
+  /** @title Produtos */
   products: Product[] | null;
 }
 

@@ -13,22 +13,10 @@ interface Props {
   // filtersToShow: FilterToShowItem[];
   // unavailableThreshold: number;
 
-  /**
-   * @default 36
-   */
-  limit: number;
-
-  /**
-   * @default 16
-   */
-  mobileLimit: number;
-
-  /**
-   * @title Items per page default
-   * @description number of products per page to display
-   */
+  /** @title Quantos produtos devem ser exibidos? */
   count: number;
 
+  /** @title Parâmetros de filtros */
   filtersParams: FilterParams[];
 }
 

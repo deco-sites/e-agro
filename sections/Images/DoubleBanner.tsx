@@ -9,7 +9,12 @@ import Section from "../../components/ui/Section.tsx";
 interface Banner {
   desktop: ImageWidget;
   mobile: ImageWidget;
+  /**
+   * @title Texto Alternativo
+   * @description Descreva a imagem
+   */
   alt: string;
+  /** @title Link */
   href?: string;
 }
 

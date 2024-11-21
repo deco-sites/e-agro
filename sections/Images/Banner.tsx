@@ -6,7 +6,12 @@ import Section from "../../components/ui/Section.tsx";
 export interface Props {
   desktop: ImageWidget;
   mobile: ImageWidget;
+  /**
+   * @title Texto Alternativo
+   * @description Descreva a imagem
+   */
   alt: string;
+  /** @title Link */
   href?: string;
 }
 

@@ -9,24 +9,25 @@ import Section from "site/components/ui/Section.tsx";
  * @titleBy alt
  */
 export interface Banner {
-  /** @description desktop otimized image */
   desktop: ImageWidget;
-
-  /** @description mobile otimized image */
   mobile: ImageWidget;
 
-  /** @description Image's alt text */
+  /**
+   * @title Texto Alternativo
+   * @description Descreva a imagem
+   */
   alt: string;
 
-  /** @description when user clicks on the image, go to this link */
+  /** @title Link */
   href?: string;
 }
 
 export interface Props {
+  /** @title Imagens */
   images?: Banner[];
 
   /**
-   * @description Check this option when this banner is the biggest image on the screen for image optimizations
+   * @title É a maior imagem do site?
    */
   preload?: boolean;
 }
@@ -73,14 +74,14 @@ function Carousel({ images = [], preload }: Props) {
       </Slider>
 
       <Slider.PrevButton
-        class="hidden lg:flex items-center justify-center z-10 size-20 bg-[#f8fffb80] rounded-full absolute top-1/2 -translate-y-1/2 -left-14 shadow-[0_0_5px_rgba(0,0,0,0.1)]"
+        class="hidden lg:flex items-center justify-center size-20 bg-[#f8fffb80] rounded-full absolute top-1/2 -translate-y-1/2 -left-14 shadow-[0_0_5px_rgba(0,0,0,0.1)]"
         disabled={false}
       >
         <Icon id="chevron-right" size={60} class="rotate-180 text-[#0c881e]" />
       </Slider.PrevButton>
 
       <Slider.NextButton
-        class="hidden lg:flex items-center justify-center z-10 size-20 bg-[#f8fffb80] rounded-full absolute top-1/2 -translate-y-1/2 -right-14 shadow-[0_0_5px_rgba(0,0,0,0.1)]"
+        class="hidden lg:flex items-center justify-center size-20 bg-[#f8fffb80] rounded-full absolute top-1/2 -translate-y-1/2 -right-14 shadow-[0_0_5px_rgba(0,0,0,0.1)]"
         disabled={false}
       >
         <Icon id="chevron-right" size={60} class="text-[#0c881e]" />

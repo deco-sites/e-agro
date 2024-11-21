@@ -10,6 +10,10 @@ import Icon from "../../components/ui/Icon.tsx";
 
 export interface Logo {
   src: ImageWidget;
+  /**
+   * @title Texto Alternativo
+   * @description Descreva a imagem
+   */
   alt: string;
   width: number;
   height: number;

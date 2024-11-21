@@ -9,16 +9,19 @@ import { useId } from "../../sdk/useId.ts";
 import Section from "site/components/ui/Section.tsx";
 
 /**
- * @titleBy title
+ * @titleBy href
  */
 interface Item {
   /** @title Link */
   href: string;
+  /** @title Imagem */
   image: ImageWidget;
 }
 
 interface Props {
+  /** @title Título */
   title: string;
+  /** @title Itens */
   items: Item[];
 }
 
