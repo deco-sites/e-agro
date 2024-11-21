@@ -162,6 +162,90 @@
       "href": "#"
     }
   ],
-  "logo": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/f1faab73-e4ff-4037-b7c4-5d02bd0b1209",
-  "trademark": "TM & © 2023 Deco Storefront, Inc."
+  "logo": {
+    "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/a7c95258-5e5d-4744-a3db-78ad354f532f/logo_eagro_77d7d9b29c.png",
+    "alt": "Deco Storefront",
+    "width": 114,
+    "height": 56
+  },
+  "trademark": "TM & © 2023 Deco Storefront, Inc.",
+  "navItems": [
+    {
+      "title": "Sobre nós",
+      "children": [
+        {
+          "label": "Página inicial",
+          "href": "https://e-agro.com.br/"
+        },
+        {
+          "label": "Quem somos",
+          "href": "https://e-agro.com.br/sobre"
+        },
+        {
+          "label": "Privacidade",
+          "href": "https://e-agro.com.br/aviso-de-privacidade"
+        },
+        {
+          "label": "Área do assessor",
+          "href": "https://e-agro.com.br/authenticator/login?canal=parceiros"
+        }
+      ]
+    },
+    {
+      "title": "Crédito",
+      "children": [
+        {
+          "label": "Linhas de crédito",
+          "href": "https://e-agro.com.br/simulacao-de-credito"
+        },
+        {
+          "label": "Simular CPR Digital",
+          "href": "https://e-agro.com.br/simulacao-de-cpr"
+        },
+        {
+          "label": "Simular Crédito Rural",
+          "href": "https://e-agro.com.br/simulacao-credito-rural"
+        }
+      ]
+    },
+    {
+      "title": "Produtos",
+      "children": [
+        {
+          "label": "Ir para a loja",
+          "href": "https://e-agro.com.br/loja"
+        },
+        {
+          "label": "Meu carrinho",
+          "href": "https://e-agro.com.br/checkout"
+        }
+      ]
+    }
+  ],
+  "socials": [
+    {
+      "icon": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/1485cb71-a1c2-423f-bd56-31720566fb91/instagram.svg",
+      "href": "https://www.instagram.com/eagro.oficial/"
+    },
+    {
+      "icon": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/675555f6-c3d7-4457-a165-4576d15c07cb/facebook.svg",
+      "href": "https://www.facebook.com/profile.php?id=100085594993797"
+    },
+    {
+      "icon": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/288be9e2-8b93-49c0-beb1-5e62e5ebc0ef/linkedin.svg",
+      "href": "https://www.linkedin.com/company/e-agroplataforma"
+    },
+    {
+      "icon": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/0833eb76-f4ea-47d5-b2d6-973d65fdea5e/youtube.svg",
+      "href": "https://www.youtube.com/channel/UCQjYEtMeUkWcxDB05o5lZQw"
+    }
+  ],
+  "appStoreQrCode": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/e-agro/be1d9a5e-8f93-4503-ba54-a8a3cad8c298/qr_code_ln_1291_canais_prop_site_fzild18k_fcdbc4469b.png",
+  "googlePlayLink": "https://play.google.com/store/apps/details?id=br.com.eagro",
+  "appStoreLink": "https://apps.apple.com/br/app/e-agro-cr%C3%A9dito-e-marketplace/id1667360272",
+  "footerBottomTexts": [
+    "© 2024 e-agro - Soluções em Comércio Eletrônico S.A.",
+    "CNPJ: 15.010.931/0001-48",
+    "Cidade de Deus, s/nº Vila Yara Osasco | SP | CEP: 06029-900."
+  ]
 }
