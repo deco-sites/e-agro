@@ -300,7 +300,7 @@ function Result(props: SectionProps<typeof loader>) {
 
               <div class="grid grid-cols-1 sm:grid-cols-[303px_1fr] gap-[18px]">
                 {device === "desktop" && (
-                  <aside class="place-self-start flex flex-col gap-9">
+                  <aside class="place-self-start flex flex-col gap-9 w-full">
                     <Filters
                       filters={filters}
                       qtdResults={products.length}
