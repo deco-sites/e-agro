@@ -22,21 +22,22 @@ import * as $$$$$$0 from "./sections/BackToTop.tsx";
 import * as $$$$$$1 from "./sections/Component.tsx";
 import * as $$$$$$2 from "./sections/Content/CategorySlider.tsx";
 import * as $$$$$$3 from "./sections/Content/PartnerStoresSlider.tsx";
-import * as $$$$$$4 from "./sections/Footer/Footer.tsx";
-import * as $$$$$$5 from "./sections/Header/Header.tsx";
-import * as $$$$$$6 from "./sections/Images/Banner.tsx";
-import * as $$$$$$7 from "./sections/Images/Carousel.tsx";
-import * as $$$$$$8 from "./sections/Images/DoubleBanner.tsx";
-import * as $$$$$$9 from "./sections/Newsletter/Newsletter.tsx";
-import * as $$$$$$10 from "./sections/Product/ProductDetails.tsx";
-import * as $$$$$$11 from "./sections/Product/ProductInfosTable.tsx";
-import * as $$$$$$12 from "./sections/Product/ProductShelf.tsx";
-import * as $$$$$$13 from "./sections/Product/ProductShelfTabbed.tsx";
-import * as $$$$$$14 from "./sections/Product/SearchResult.tsx";
-import * as $$$$$$15 from "./sections/Product/ShelfWithImage.tsx";
-import * as $$$$$$16 from "./sections/Product/Wishlist.tsx";
-import * as $$$$$$17 from "./sections/Session.tsx";
-import * as $$$$$$18 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$4 from "./sections/Content/SearchMobile.tsx";
+import * as $$$$$$5 from "./sections/Footer/Footer.tsx";
+import * as $$$$$$6 from "./sections/Header/Header.tsx";
+import * as $$$$$$7 from "./sections/Images/Banner.tsx";
+import * as $$$$$$8 from "./sections/Images/Carousel.tsx";
+import * as $$$$$$9 from "./sections/Images/DoubleBanner.tsx";
+import * as $$$$$$10 from "./sections/Newsletter/Newsletter.tsx";
+import * as $$$$$$11 from "./sections/Product/ProductDetails.tsx";
+import * as $$$$$$12 from "./sections/Product/ProductInfosTable.tsx";
+import * as $$$$$$13 from "./sections/Product/ProductShelf.tsx";
+import * as $$$$$$14 from "./sections/Product/ProductShelfTabbed.tsx";
+import * as $$$$$$15 from "./sections/Product/SearchResult.tsx";
+import * as $$$$$$16 from "./sections/Product/ShelfWithImage.tsx";
+import * as $$$$$$17 from "./sections/Product/Wishlist.tsx";
+import * as $$$$$$18 from "./sections/Session.tsx";
+import * as $$$$$$19 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
@@ -55,21 +56,22 @@ const manifest = {
     "site/sections/Component.tsx": $$$$$$1,
     "site/sections/Content/CategorySlider.tsx": $$$$$$2,
     "site/sections/Content/PartnerStoresSlider.tsx": $$$$$$3,
-    "site/sections/Footer/Footer.tsx": $$$$$$4,
-    "site/sections/Header/Header.tsx": $$$$$$5,
-    "site/sections/Images/Banner.tsx": $$$$$$6,
-    "site/sections/Images/Carousel.tsx": $$$$$$7,
-    "site/sections/Images/DoubleBanner.tsx": $$$$$$8,
-    "site/sections/Newsletter/Newsletter.tsx": $$$$$$9,
-    "site/sections/Product/ProductDetails.tsx": $$$$$$10,
-    "site/sections/Product/ProductInfosTable.tsx": $$$$$$11,
-    "site/sections/Product/ProductShelf.tsx": $$$$$$12,
-    "site/sections/Product/ProductShelfTabbed.tsx": $$$$$$13,
-    "site/sections/Product/SearchResult.tsx": $$$$$$14,
-    "site/sections/Product/ShelfWithImage.tsx": $$$$$$15,
-    "site/sections/Product/Wishlist.tsx": $$$$$$16,
-    "site/sections/Session.tsx": $$$$$$17,
-    "site/sections/Theme/Theme.tsx": $$$$$$18,
+    "site/sections/Content/SearchMobile.tsx": $$$$$$4,
+    "site/sections/Footer/Footer.tsx": $$$$$$5,
+    "site/sections/Header/Header.tsx": $$$$$$6,
+    "site/sections/Images/Banner.tsx": $$$$$$7,
+    "site/sections/Images/Carousel.tsx": $$$$$$8,
+    "site/sections/Images/DoubleBanner.tsx": $$$$$$9,
+    "site/sections/Newsletter/Newsletter.tsx": $$$$$$10,
+    "site/sections/Product/ProductDetails.tsx": $$$$$$11,
+    "site/sections/Product/ProductInfosTable.tsx": $$$$$$12,
+    "site/sections/Product/ProductShelf.tsx": $$$$$$13,
+    "site/sections/Product/ProductShelfTabbed.tsx": $$$$$$14,
+    "site/sections/Product/SearchResult.tsx": $$$$$$15,
+    "site/sections/Product/ShelfWithImage.tsx": $$$$$$16,
+    "site/sections/Product/Wishlist.tsx": $$$$$$17,
+    "site/sections/Session.tsx": $$$$$$18,
+    "site/sections/Theme/Theme.tsx": $$$$$$19,
   },
   "actions": {
     "site/actions/minicart/submit.ts": $$$$$$$$$0,

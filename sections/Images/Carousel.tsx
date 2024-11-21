@@ -38,7 +38,7 @@ function Carousel({ images = [], preload }: Props) {
   return (
     <div
       id={id}
-      class="flex flex-col items-center gap-4 relative container mt-2 mb-10"
+      class="flex flex-col items-center gap-4 relative container mt-2 mb-10 max-lg:px-4"
     >
       <Slider class="carousel carousel-center w-full">
         {images.map(({ desktop, mobile, alt, href }, index) => {

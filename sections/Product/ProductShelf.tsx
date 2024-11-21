@@ -14,7 +14,7 @@ export default function ProductShelf({ products, title }: Props) {
   if (!products?.length) return null;
 
   return (
-    <div class="flex flex-col gap-5 container max-lg:px-4">
+    <div class="flex flex-col gap-5 container max-lg:px-4 mb-6">
       <Title title={title} />
 
       <ProductSlider

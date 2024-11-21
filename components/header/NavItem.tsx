@@ -59,7 +59,7 @@ function NavItem({ label, href, columns }: NavItemProps) {
 
       {columns && columns.length > 0 && (
         <div class="absolute hidden hover:flex group-hover:flex top-full left-1/2 -translate-x-1/2 bg-[#f7f7f7] gap-7 p-4 pt-6 rounded-b-md divide-x divide-[#e5e6e7]">
-          <div class="flex items-start gap-1 max-h-[400px] overflow-y-auto scrollbar pr-1 shrink-0">
+          <div class="flex items-start gap-1 max-h-[400px] overflow-y-auto overscroll-contain scrollbar pr-1 shrink-0">
             {columns.map((i) => (
               <ul class="flex flex-col gap-4 min-w-[224px]">
                 {i.map(({ title, href, children }) => (

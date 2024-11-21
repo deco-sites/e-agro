@@ -35,11 +35,11 @@ export default function CategorySlider({ title, items }: Props) {
   return (
     <div
       id={id}
-      class="flex flex-col gap-8 container relative mb-6 max-lg:px-4"
+      class="flex flex-col gap-5 container relative mb-6 max-lg:px-4"
     >
-      <Title title={title} />
+      <Title title={title} class="mb-3" />
 
-      <div class="w-full lg:px-14 mb-4">
+      <div class="w-full lg:px-14">
         <Slider class="carousel carousel-center w-full gap-5">
           {items.map(({ image, title, href }, index) => (
             <Slider.Item

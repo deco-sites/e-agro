@@ -8,6 +8,13 @@
       }
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Content/SearchMobile.tsx",
+        "text": "<h1><strong><span style=\"color: rgb(227, 227, 227); font-size: 12px\">Loja e-agro</span></strong></h1><p></p><h4><span style=\"color: rgb(227, 227, 227); font-size: 12px\">Selecionamos os melhores</span></h4><h4></h4><h4><span style=\"color: rgb(227, 227, 227); font-size: 12px\">produtos para o seu agronegócio</span></h4>"
+      }
+    },
+    {
       "__resolveType": "site/sections/Images/Carousel.tsx",
       "images": [
         {
