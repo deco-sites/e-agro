@@ -5468,6 +5468,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-text-opacity: 1;
   color: rgb(12 136 30 / var(--tw-text-opacity));
 }
+.after\:content-\[attr\(data-value\)\]::after {
+  --tw-content: attr(data-value);
+  content: var(--tw-content);
+}
 .first\:ml-4:first-child {
   margin-left: 1rem;
 }
