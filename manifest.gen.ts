@@ -11,10 +11,11 @@ import * as $$$$$$$$$$$3 from "./apps/site.ts";
 import * as $$$0 from "./loaders/availableIcons.ts";
 import * as $$$1 from "./loaders/icons.ts";
 import * as $$$2 from "./loaders/minicart.ts";
-import * as $$$3 from "./loaders/productListingPage.ts";
-import * as $$$4 from "./loaders/productsFromJson.ts";
-import * as $$$5 from "./loaders/user.ts";
-import * as $$$6 from "./loaders/wishlist.ts";
+import * as $$$3 from "./loaders/productDetailsPage.ts";
+import * as $$$4 from "./loaders/productListingPage.ts";
+import * as $$$5 from "./loaders/productsFromJson.ts";
+import * as $$$6 from "./loaders/user.ts";
+import * as $$$7 from "./loaders/wishlist.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$2 from "./sections/Category/CategoryGrid.tsx";
@@ -46,16 +47,17 @@ import * as $$$$$$27 from "./sections/Social/WhatsApp.tsx";
 import * as $$$$$$28 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
-  loaders: {
+  "loaders": {
     "site/loaders/availableIcons.ts": $$$0,
     "site/loaders/icons.ts": $$$1,
     "site/loaders/minicart.ts": $$$2,
-    "site/loaders/productListingPage.ts": $$$3,
-    "site/loaders/productsFromJson.ts": $$$4,
-    "site/loaders/user.ts": $$$5,
-    "site/loaders/wishlist.ts": $$$6,
+    "site/loaders/productDetailsPage.ts": $$$3,
+    "site/loaders/productListingPage.ts": $$$4,
+    "site/loaders/productsFromJson.ts": $$$5,
+    "site/loaders/user.ts": $$$6,
+    "site/loaders/wishlist.ts": $$$7,
   },
-  sections: {
+  "sections": {
     "site/sections/Animation/Animation.tsx": $$$$$$0,
     "site/sections/Category/CategoryBanner.tsx": $$$$$$1,
     "site/sections/Category/CategoryGrid.tsx": $$$$$$2,
@@ -86,18 +88,18 @@ const manifest = {
     "site/sections/Social/WhatsApp.tsx": $$$$$$27,
     "site/sections/Theme/Theme.tsx": $$$$$$28,
   },
-  actions: {
+  "actions": {
     "site/actions/minicart/submit.ts": $$$$$$$$$0,
     "site/actions/wishlist/submit.ts": $$$$$$$$$1,
   },
-  apps: {
+  "apps": {
     "site/apps/deco/analytics.ts": $$$$$$$$$$$0,
     "site/apps/deco/htmx.ts": $$$$$$$$$$$1,
     "site/apps/deco/shopify.ts": $$$$$$$$$$$2,
     "site/apps/site.ts": $$$$$$$$$$$3,
   },
-  name: "site",
-  baseUrl: import.meta.url,
+  "name": "site",
+  "baseUrl": import.meta.url,
 };
 
 export type Manifest = typeof manifest;
