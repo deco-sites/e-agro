@@ -47,7 +47,16 @@
         "__resolveType": "site/sections/Product/ProductShelf.tsx",
         "title": "Mais produtos deste vendedor",
         "products": {
-          "__resolveType": "site/loaders/productsFromJson.ts"
+          "__resolveType": "site/loaders/productListPage.ts",
+          "filtersParams": [
+            {
+              "key": "Híbrido",
+              "value": "Sim"
+            }
+          ],
+          "count": 10,
+          "limit": 36,
+          "mobileLimit": 16
         }
       }
     },
