@@ -19,7 +19,14 @@ export default defineApp(async (_req, ctx) => {
         {/* Enable View Transitions API */}
         <style
           dangerouslySetInnerHTML={{
-            __html: `@view-transition { navigation: auto; }`,
+            __html: `
+            @view-transition {
+              navigation: auto;
+            }
+
+            * {
+              view-transition-name: none !important; // Disable view transitions for all elements
+            }`,
           }}
         />
 
